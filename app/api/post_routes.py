@@ -133,14 +133,18 @@ def delete_post(id):
 @post_routes.route('/<int:id>/comments')
 def get_post_comments(id):
     post = Post.query.get(id)
-    comments = post.query.get(comments)
+    comments = Comment.query.get(post_id == id)
 
-    if not post:
-        return {"message": ["Post could not be found."]}, 404
-    if not comments:
-        return {"message": ["Comments could not be found."]}, 404
+    print("THIS IS comments VARIABLE: ", comments)
+    # print("THIS IS comments VARIABLE: ", comments)
 
-    return jsonify(comment.to_dict() for comment in comments)
+    # if not post:
+    #     return {"message": ["Post could not be found."]}, 404
+    # if not comments:
+    #     return {"message": ["Comments could not be found."]}, 404
+
+    # return jsonify(comment.to_dict() for comment in comments)
+    return jsonify(post.to_dict())
 
 # CREATE | POST
 # create a comment

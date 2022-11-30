@@ -12,6 +12,7 @@ def comments_by_current_user():
     comments = current_user.comments
     return jsonify({'Comments': [comment.to_dict() for comment in comments]})
 
+
 # update comment
 @comment_routes.route('/<int:id>', methods = ["PUT"])
 @login_required
