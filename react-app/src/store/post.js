@@ -138,3 +138,36 @@ export const deletePostThunk = (postId) => async (dispatch) => {
         dispatch(deletePostAction(postId))
     }
 };
+
+const initialState = {};
+const postReducer = (state = initialState, action) => {
+    let newState = {};
+
+    switch (action.type) {
+        case GET_POSTS:
+            action.payload.Post.forEach(post => {
+                newState[post.id] = post
+            })
+            return newState;
+
+        case CREATE_POST:
+            newState = {...state}
+            newState[action.payload] = {...newState[action.payload.id], ...action.payload}
+            return newState;
+
+        case UPDATE_POST:
+            newState = {...state}
+            newState[action.payload] = {...newState[action.payload.id], ...action.payload}
+            return newState;
+
+        case DELETE_POST:
+            newState = {...state}
+            delete newState[action.payload]
+            return newState;
+
+        default:
+            return state;
+    };
+};
+
+export default postReducer;

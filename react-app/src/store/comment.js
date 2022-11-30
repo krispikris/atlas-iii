@@ -17,7 +17,7 @@ const getCommentsAction = (payload) => {
 
 // CREATE | POST
 const createCommentAction = (payload) => {
-    // payload = comment-inputs
+    // payload = comment-input
     return {
         type: CREATE_COMMENT,
         payload
@@ -26,7 +26,7 @@ const createCommentAction = (payload) => {
 
 // UPDATE | PUT
 const updateCommentAction = (payload) => {
-    // payload = comment-inputs
+    // payload = comment-input
     return {
         type: UPDATE_COMMENT,
         payload
@@ -45,7 +45,7 @@ const deleteCommentAction = (payload) => {
 // THUNKS
 // READ | GET
 // ALL COMMENTS FOR POST BY ID
-export const getCommentsThunk = async (dispatch) => {
+export const getCommentsThunk = (postId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${postId}/comments`)
 
     if (response.ok) {
@@ -56,8 +56,8 @@ export const getCommentsThunk = async (dispatch) => {
 };
 
 // CREATE || POST
-export const createCommentThunk = (payload) => async (dispatch) => {
-    const response = await fetch(`/api/comments`, {
+export const createCommentThunk = (payload, postId) => async (dispatch) => {
+    const response = await fetch(`/api/posts/${postId}/comments`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -65,7 +65,7 @@ export const createCommentThunk = (payload) => async (dispatch) => {
 
     if (response.ok) {
         const data = response.json()
-        dispatch(createPostAction(data))
+        dispatch(createCommentAction(data))
         return data
     }
 };
@@ -95,3 +95,35 @@ export const deleteCommentThunk = (commentId) => async (dispatch) => {
         dispatch(deleteCommentAction(commentId))
     }
 };
+
+const initialState = {};
+const commentsReducer = (state = initialState, action) => {
+    let newState = {};
+
+    switch (action.type) {
+        case GET_COMMENTS:
+            action.payload.Comment.forEach(comment => {
+                newState[comment.post_id] = comment
+            })
+            return newState;
+
+        case CREATE_COMMENT:
+            newState = {...state}
+            newState[action.payload] = {...newState[action.payload.id], ...action.payload}
+            return newState;
+
+        case UPDATE_COMMENT:
+            newState = {...state}
+            newState[action.payload] = {...newState[action.payload.id], ...action.payload}
+            return newState;
+
+        case DELETE_COMMENT:
+            newState = {...state}
+            delete newState[action.payload]
+
+        default:
+            return state;
+    };
+};
+
+export default commentsReducer
