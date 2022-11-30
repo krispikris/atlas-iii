@@ -83,7 +83,6 @@ def update_post(id):
     if current_user.id == post.user_id and form.validate_on_submit():
         data = form.data
 
-        post.id = id,
         post.user_id = current_user.id,
         post.photo = data['photo'],
         post.title = data['title'],
