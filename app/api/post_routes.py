@@ -93,19 +93,19 @@ def update_post(id):
         print("THIS IS FORM.DATA: ", form.data)
         print("THIS IS FORM.TITLE.DATA: ", form.title.data)
 
-        # post.id = id,
-        # post.user_id = current_user.id,
-        # post.photo = data['photo'],
-        # post.title = data['title'],
-        # post.location = data['location'],
-        # post.description = data['description'],
-        # post.tips = data['tips']
+        post.id = id
+        post.user_id = current_user.id
+        post.photo = data['photo']
+        post.title = data['title']
+        post.location = data['location']
+        post.description = data['description']
+        post.tips = data['tips']
 
-        post.photo = form.photo.data,
-        post.title = form.title.data,
-        post.location = form.location.data,
-        post.description = form.description.data,
-        post.tips = form.tips.data
+        # post.photo = form.photo.data,
+        # post.title = form.title.data,
+        # post.location = form.location.data,
+        # post.description = form.description.data,
+        # post.tips = form.tips.data
 
         db.session.add(post)
         db.session.commit()
@@ -133,17 +133,17 @@ def delete_post(id):
 @post_routes.route('/<int:id>/comments')
 def get_post_comments(id):
     post = Post.query.get(id)
-    comments = Comment.query.get(post_id == id)
+    comments = Comment.query.get(post.id == id)
 
-    print("THIS IS comments VARIABLE: ", comments)
+    # print("THIS IS comments VARIABLE: ", comments)
     # print("THIS IS comments VARIABLE: ", comments)
 
-    # if not post:
-    #     return {"message": ["Post could not be found."]}, 404
-    # if not comments:
-    #     return {"message": ["Comments could not be found."]}, 404
+    if not post:
+        return {"message": ["Post could not be found."]}, 404
 
-    # return jsonify(comment.to_dict() for comment in comments)
+    if not comments:
+        return {"message": ["Comments could not be found."]}, 404
+
     return jsonify(post.to_dict())
 
 # CREATE | POST

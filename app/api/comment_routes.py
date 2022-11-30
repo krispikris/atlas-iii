@@ -6,11 +6,11 @@ from ..forms.comment_form import UpdateCommentForm
 comment_routes = Blueprint('comments', __name__)
 
 # all comments of current user
-@comment_routes.route('/current')
-@login_required
-def comments_by_current_user():
-    comments = current_user.comments
-    return jsonify({'Comments': [comment.to_dict() for comment in comments]})
+# @comment_routes.route('/current')
+# @login_required
+# def comments_by_current_user():
+#     comments = Comment.query.get(current_user.id = comment.user_id)
+#     return jsonify({'Comments': [comment.to_dict() for comment in comments]})
 
 
 # update comment
@@ -24,7 +24,10 @@ def update_comment(id):
     if not comment:
         return {"message": ["Comment could not be found."]}, 404
 
-    if current_user.id == comment.user_id and form.validate_on_submit():
+    if current_user != comment.user_id:
+        return "Unauthorized to update this Comment.", 401
+
+    if form.validate_on_submit():
         data = form.data
 
         comment.comment = data['comment']
@@ -32,7 +35,6 @@ def update_comment(id):
         db.session.add(comment)
         db.session.commit()
         return jsonify(comment.to_dict())
-    return "Unauthorized to update this Comment.", 401
 
 # delete comment
 @comment_routes.route('/<int:id>', methods = ["DELETE"])
