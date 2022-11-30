@@ -150,14 +150,25 @@ const postReducer = (state = initialState, action) => {
             })
             return newState;
 
+        case GET_USER_POSTS:
+            action.payload.Post.forEach(post => {
+                newState[post.id] = post
+            })
+            return newState;
+
+        case GET_POST:
+            newState = {...state}
+            newState[action.payload.id] = {...newState[action.payload.id], ...action.payload}
+            return newState;
+
         case CREATE_POST:
             newState = {...state}
-            newState[action.payload] = {...newState[action.payload.id], ...action.payload}
+            newState[action.payload.id] = action.payload
             return newState;
 
         case UPDATE_POST:
             newState = {...state}
-            newState[action.payload] = {...newState[action.payload.id], ...action.payload}
+            newState[action.payload.id] = {...newState[action.payload.id], ...action.payload}
             return newState;
 
         case DELETE_POST:
