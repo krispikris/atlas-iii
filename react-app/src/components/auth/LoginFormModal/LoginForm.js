@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+// react-app/src/components/LoginFormModal/LoginForm.js
+
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { login } from '../../../store/session';
+import * as sessionActions from '../../../store/session'
+
+// import { login } from '../../../store/session';
+// import { Redirect } from 'react-router-dom';
 
 const LoginForm = () => {
+  const user = useSelector(state => state.session.user);
+  const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const user = useSelector(state => state.session.user);
-  const dispatch = useDispatch();
 
   const onLogin = async (e) => {
     e.preventDefault();
