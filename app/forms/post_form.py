@@ -10,9 +10,9 @@ class PostForm(FlaskForm):
     description = StringField("Description")
     tips = StringField("Tips")
 
-class UpdatePostForm(FlaskForm):
-    photo = StringField("Image URL", validators=[DataRequired()])
-    title = StringField("Title", validators=[DataRequired()])
-    location = StringField("Location", validators=[DataRequired()])
-    description = StringField("Description")
-    tips = StringField("Tips")
+# class UpdatePostForm(FlaskForm):
+#     photo = StringField("Image URL", validators=[DataRequired()])
+#     title = StringField("Title", validators=[DataRequired()])
+#     location = StringField("Location", validators=[DataRequired()])
+#     description = StringField("Description")
+#     tips = StringField("Tips")
