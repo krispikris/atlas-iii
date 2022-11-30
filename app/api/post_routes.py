@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import login_required, current_user
 from app.models import db, Post, Comment
-from ..forms import PostForm, CommentForm
+from ..forms.post_form import PostForm, UpdatePostForm
+from ..forms.comment_form import CommentForm, UpdateCommentForm
 
 post_routes = Blueprint('posts', __name__)
 
@@ -18,9 +19,9 @@ def validation_errors_to_error_messages(validation_errors):
 # GET | READ
 
 # all posts
-@post_routes.route('/', methods=["GET"])
+@post_routes.route('')
 def posts():
-    posts = Post.query().all()
+    posts = Post.query.all()
     return jsonify({'Posts': [post.to_dict() for post in posts]})
 
 # all posts of current user
@@ -28,21 +29,24 @@ def posts():
 @login_required
 def posts_by_current_user():
     posts = current_user.posts
-    return jsonify({{'Posts': [post.to_dict(True) for post in posts]}})
+
+    print("THIS IS THE CURRENT USER: ", current_user)
+    print("THESE ARE USER POSTS: ", posts)
+    return jsonify({'Posts': [post.to_dict() for post in posts]})
 
 # post details by id
-@post_routes.route('<int:id>', methods=["GET"])
+@post_routes.route('/<int:id>')
 def post_detail(id):
     post = Post.query.get(id)
-
+    # return jsonify(post.to_dict())
     if post:
-        return jsonify(post.to_dict(True))
+        return jsonify(post.to_dict())
     return {"message": ["Post could not be found."]}, 404
 
 # CREATE | POST
 
 # create post
-@post_routes.route('/', methods = ["POST"])
+@post_routes.route('', methods = ["POST"])
 @login_required
 def create_post():
     form = PostForm()
@@ -52,6 +56,7 @@ def create_post():
         data = form.data
 
         new_post = Post(
+            user_id = current_user.id,
             photo = data['photo'],
             title = data['title'],
             location = data['location'],
@@ -64,29 +69,32 @@ def create_post():
         return jsonify(new_post.to_dict())
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-# update post
+# update post || DOESN'T WORK
 @post_routes.route('/<int:id>', methods = ["PUT"])
 @login_required
 def update_post(id):
     post = Post.query.get(id)
-    form = PostForm()
+    form = UpdatePostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if not post:
         return {"message": ["Post could not be found."]}, 404
 
-    if form.validate_on_submit:
+    if current_user.id == post.user_id and form.validate_on_submit():
         data = form.data
 
-        post.photo = data['photo']
+        post.id = id,
+        post.user_id = current_user.id,
+        post.photo = data['photo'],
         post.title = data['title'],
         post.location = data['location'],
         post.description = data['description'],
         post.tips = data['tips']
 
+        db.session.add(post)
         db.session.commit()
-        return jsonify(post.to(dict))
-    return jsonify("Post Update Failed.")
+        return jsonify(post.to_dict())
+    return "Unauthorized to update this Post.", 401
 
 # delete post
 @post_routes.route('/<int:id>', methods = ["DELETE"])
@@ -135,14 +143,15 @@ def update_comment(post_id, comment_id):
     if not comment:
         return {"message": ["Comment could not be found."]}, 404
 
-    if form.validate_on_submit:
+    if current_user.id == comment.user_id and form.validate_on_submit():
         data = form.data
 
         comment.comment = data['comment']
 
+        db.session.add(comment)
         db.session.commit()
         return jsonify(comment.to_dict())
-    return jsonify("Comment Update Failed.")
+    return "Unauthorized to update this Comment.", 401
 
 # delete comment
 @post_routes.route('/<int:post_id>/comments/<int:comment_id>', methods=["DELETE"])
