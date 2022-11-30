@@ -1,23 +1,20 @@
 // react-app/src/components/Navigation/index.js
 
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ProfileButton from './ProfileButton';
-import LoginFormModal from '../Auth/LoginFormModal'
-import SignupFormModal from '../Auth/SignupFormModal'
-import CreatePostModal from '../Posts/CreatePostFormModal'
-import './Navigation.css'
 
-// import LogoutButton from '../Auth/LogoutButton';
+import "./Navigation.css";
+import CreatePostForm from "../Posts/CreatePostFormModal/CreatePostForm";
+import ProfileButton from "./ProfileButton";
 
-const Navigation = ({isLoaded}) => {
+const Navigation = ({ isLoaded }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
-    if (showMenu) return
-    setShowMenu(true)
+    if (showMenu) return;
+    setShowMenu(true);
   };
 
   useEffect(() => {
@@ -32,65 +29,57 @@ const Navigation = ({isLoaded}) => {
   if (sessionUser) {
     sessionLinks = (
       <>
-      <div className='navbar-buttons-li'>
+        <div className="navbar-buttons-li">
+          <div id="create-post-button">
+            <CreatePostForm />
+          </div>
 
-        <div id="create-post-button">
-          <CreatePostFormModal />
+          <div id="profile-button">
+            <ProfileButton user={sessionUser} />
+          </div>
         </div>
-
-        <div id="profile-button">
-          <ProfileButton user={sessionUser} />
-        </div>
-
-        </div>
-              </>
-    )
-  }
-
-  else {
+      </>
+    );
+  } else {
     sessionLinks = (
       <>
-      <div className="session-buttons-nli">
+        <div className="session-buttons-nli">
+          <div className={openMenu()} id="nli-auth-buttons">
+            <a id="signup-button" href="#">
+              <SignupFormModal />
+            </a>
 
-        <div className={openMenu()} id="nli-auth-buttons">
-          <a id='signup-button'href="#">
-            <SignupFormModal />
-          </a>
-
-          <a id='login-button'href="#">
-            <LoginFormModal />
-          </a>
+            <a id="login-button" href="#">
+              <LoginFormModal />
+            </a>
+          </div>
         </div>
-
-      </div>
       </>
-    )
+    );
   }
 
   return (
     <>
-    <div className="navigation">
-
-      <div className="navigation-wrap">
-        <div className="navigation-bar">
+      <div className="navigation">
+        <div className="navigation-wrap">
+          <div className="navigation-bar">
             <NavLink exact to="/">
               <div className="treebnb">
                 <img
                   className="green-airbnb-logo"
                   src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1666469050/airbnb-xxl_ep5w6c.png"
                   alt="logo-1"
-                  ></img>
-              <div className="treebnb-text">treebnb</div>
-          </div>
+                ></img>
+                <div className="treebnb-text">treebnb</div>
+              </div>
             </NavLink>
 
-
-          <div>{isLoaded && sessionLinks}</div>
+            <div>{isLoaded && sessionLinks}</div>
+          </div>
         </div>
       </div>
-      </div>
 
-{/* FOOTER */}
+      {/* FOOTER */}
       {/* <div className="footer-bar-wrap">
         <div id="footer-left">
           <div id="created-by-name">2022 Created and Styled by Kristopher Han</div>
@@ -111,35 +100,35 @@ const Navigation = ({isLoaded}) => {
     </>
   );
 
-//   return (
-//     <nav>
-//       <ul>
-//         <li>
-//           <NavLink to='/' exact={true} activeClassName='active'>
-//             Home
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink to='/login' exact={true} activeClassName='active'>
-//             Login
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink to='/sign-up' exact={true} activeClassName='active'>
-//             Sign Up
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink to='/users' exact={true} activeClassName='active'>
-//             Users
-//           </NavLink>
-//         </li>
-//         <li>
-//           <LogoutButton />
-//         </li>
-//       </ul>
-//     </nav>
-//   );
-}
+  //   return (
+  //     <nav>
+  //       <ul>
+  //         <li>
+  //           <NavLink to='/' exact={true} activeClassName='active'>
+  //             Home
+  //           </NavLink>
+  //         </li>
+  //         <li>
+  //           <NavLink to='/login' exact={true} activeClassName='active'>
+  //             Login
+  //           </NavLink>
+  //         </li>
+  //         <li>
+  //           <NavLink to='/sign-up' exact={true} activeClassName='active'>
+  //             Sign Up
+  //           </NavLink>
+  //         </li>
+  //         <li>
+  //           <NavLink to='/users' exact={true} activeClassName='active'>
+  //             Users
+  //           </NavLink>
+  //         </li>
+  //         <li>
+  //           <LogoutButton />
+  //         </li>
+  //       </ul>
+  //     </nav>
+  //   );
+};
 
 export default Navigation;
