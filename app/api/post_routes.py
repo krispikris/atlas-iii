@@ -90,9 +90,6 @@ def update_post(id):
     if form.validate_on_submit():
         data = form.data
 
-        print("THIS IS FORM.DATA: ", form.data)
-        print("THIS IS FORM.TITLE.DATA: ", form.title.data)
-
         post.id = id
         post.user_id = current_user.id
         post.photo = data['photo']
