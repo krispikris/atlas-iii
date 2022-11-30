@@ -24,7 +24,7 @@ def update_comment(id):
     if not comment:
         return {"message": ["Comment could not be found."]}, 404
 
-    if current_user != comment.user_id:
+    if current_user.id != comment.user_id:
         return "Unauthorized to update this Comment.", 401
 
     if form.validate_on_submit():
