@@ -5,11 +5,6 @@ const CREATE_POST = 'post/CREATE_POST'
 const UPDATE_POST = 'post/UPDATE_POST'
 const DELETE_POST = 'post/DELETE_POST'
 
-const GET_USER_COMMENTS = 'comment/GET_USER_COMMENTS'
-const CREATE_COMMENT = 'comment/CREATE_COMMENT'
-const UPDATE_COMMENT = 'comment/UPDATE_COMMENT'
-const DELETE_COMMENT = 'comment/DELETE_COMMENT'
-
 // POST ACTIONS
 
 // READ | GET (3x)
@@ -67,7 +62,7 @@ const deletePostAction = (payload) => {
     }
 }
 
-// POST THUNKS
+// THUNKS
 // READ | GET (3x)
 // ALL POSTS
 export const getAllPostsThunk = async (dispatch) => {
@@ -86,7 +81,8 @@ export const getCurrentUserPostsThunk = async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(getUserPostsAction(data.Posts))
+        // dispatch(getUserPostsAction(data.Posts))
+        dispatch(getUserPostsAction(data))
         return data;
     }
 };
@@ -129,5 +125,16 @@ export const updatePostThunk = (payload, postId) => async (dispatch) => {
         const data = response.json()
         dispatch(updatePostAction(data))
         return data
+    }
+};
+
+// DELETE
+export const deletePostThunk = (postId) => async (dispatch) => {
+    const response = await fetch(`/api/posts/${postId}`, {
+        method: "DELETE",
+    })
+
+    if (response.ok) {
+        dispatch(deletePostAction(postId))
     }
 };
