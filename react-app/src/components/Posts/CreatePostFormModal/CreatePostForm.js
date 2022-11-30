@@ -17,14 +17,13 @@ const CreatePostForm = ({ setShowModal }) => {
 
   useEffect(() => {
     const errors = [];
-
     //   if (!imageURL || !imageURL.match(/\/{2}.+?\.(jpg|png|gif|jpeg)/gm)) {
     //     errors.push("Please enter valid image url.");
     //   }
 
     if (!photo || photo.length < 5 || photo.length > 255) {
       errors.push(
-        "Please enter valid photo. photo must be more than 5 and less than 255 characters."
+        "Please enter valid photo. Photo URL must be more than 5 and less than 255 characters."
       );
     }
 
