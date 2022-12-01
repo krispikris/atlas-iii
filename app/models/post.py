@@ -26,6 +26,10 @@ class Post(db.Model):
 
 
     def to_dict(self):
+        # dicted
+        # if self.users:
+        #     dicted = self.users.to_dict()
+
         return {
             'id': self.id,
             'user_id': self.user_id,

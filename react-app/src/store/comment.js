@@ -102,7 +102,7 @@ const commentsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case GET_COMMENTS:
-            action.payload.Comment.forEach(comment => {
+            action.payload.Comments.forEach(comment => {
                 newState[comment.post_id] = comment
             })
             return newState;

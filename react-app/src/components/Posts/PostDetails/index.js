@@ -47,7 +47,7 @@ const PostDetails = () => {
     allPostsArr
   );
   console.log(
-    "Current spot based on the :spotId as an OBJECT in URL of the SpotDetailsPage | currentPostObj: ",
+    "Current post based on the :postId as an OBJECT in URL of the PostDetailsPage | currentPostObj: ",
     currentPostObj
   );
 
@@ -132,9 +132,9 @@ const PostDetails = () => {
             <div className="post-detail-info-container">
               <div id="post-detail-info">
                 <h2 id="title-header-1">
-                  Treehouse hosted by {currentPostObj.Owner.firstName}
+                  atlasPhoto posted by {currentPostObj?.User?.firstName}
                 </h2>
-                <h3 id="title-price">${currentPostObj.price} per night</h3>
+                {/* <h3 id="title-price">${currentPostObj.price} per night</h3> */}
               </div>
 
               {postButtons}
@@ -159,7 +159,7 @@ const PostDetails = () => {
                   >
                     {/* {console.log('comment for current Spot as an OBJECT: ', comment)} */}
                     <div id="comment-writer">
-                      {comment.User.firstName} say...
+                      {comment?.User?.firstName} say...
                     </div>
                     {/* <div>{comment.createdAt}</div>       FIND WAY TO CONVERT INTO MONTH YEAR */}
                     <div id="comment-after">{comment.comment}</div>

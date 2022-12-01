@@ -76,7 +76,7 @@ const deletePostAction = (payload) => {
 // THUNKS
 // READ | GET (3x)
 // ALL POSTS
-export const getAllPostsThunk = async (dispatch) => {
+export const getAllPostsThunk = () => async (dispatch) => {
   const response = await fetch("/api/posts");
 
   if (response.ok) {
@@ -88,7 +88,7 @@ export const getAllPostsThunk = async (dispatch) => {
 };
 
 // CURRENT USER'S POSTS
-export const getCurrentUserPostsThunk = async (dispatch) => {
+export const getCurrentUserPostsThunk = () => async (dispatch) => {
   const response = await fetch(`/api/posts/current`);
 
   if (response.ok) {
@@ -157,8 +157,8 @@ const postReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case GET_POSTS:
-      console.log(`GET_POSTS REDUCER: `, action);
-      action.payload.Post.forEach((post) => {
+      console.log(`GET_POSTS REDUCER: ++++++++++++++++++++`, action)
+      action.payload.Posts.forEach((post) => {
         newState[post.id] = post;
       });
       return newState;
