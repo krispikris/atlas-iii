@@ -24,7 +24,7 @@ const Root = () => {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Root />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
