@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { Modal } from "../../../context/Modal";
-import DeleteSpotForm from "./DeleteSpotForm";
+import DeletePostForm from "./DeletePostForm";
 
-const DeletePostFormModal = ({ spotToUpdate }) => {
+const DeletePostFormModal = ({ postToUpdate }) => {
   const [showModal, setShowModal] = useState(false);
-  console.log("+++++++++", spotToUpdate);
+  console.log("+++++++++", postToUpdate);
 
   return (
     <>
       <button
-        className="delete-spot-button-in-modal"
+        className="delete-post-button-in-modal"
         onClick={() => setShowModal(true)}
       >
-        Delete Spot
+        Delete Post
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DeleteSpotForm
+          <DeletePostForm
             setShowModal={setShowModal}
-            spotToUpdate={spotToUpdate}
+            postToUpdate={postToUpdate}
           />
         </Modal>
       )}
