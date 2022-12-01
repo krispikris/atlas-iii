@@ -58,7 +58,6 @@ const App = () => {
           </Route>
           <Route path="/posts/current" exact={true}>
             <h1>Current User's Posts</h1>
-            <PostDetails />
           </Route>
           <Route path="/posts/:postId" exact={true}>
             <h1>Post Details</h1>

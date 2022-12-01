@@ -29,12 +29,27 @@ const PostDetails = () => {
   const currentPostCommentsObj = useSelector((state) => state.comments); // OBJ OF OBJS | commentS FOR THE CURRENT SPOT DETAILS PAGE
   const currentPostCommentsArr = Object.values(currentPostCommentsObj); // ARR OF OBJS | commentS FOR THE CURRENT SPOT DETAILS PAGE
 
-  const commentCount = currentPostCommentsArr.length;
+  // const commentCount = currentPostCommentsArr.length;
   const commentToUpdate = sessionUser
     ? currentPostCommentsArr.find(
         (comment) => comment.userId === sessionUser.id
       )
     : undefined;
+
+  // CONDITIONAL RENDERING CONSOLE LOGS | UPDATE AND DELETE SPOT
+  console.log("postId based on useParams | postID:", postId);
+  console.log(
+    "All Posts Information as an OBJECT of Objects of Posts by SpotID | allPostsObj: ",
+    allPostsObj
+  );
+  console.log(
+    "All Posts Information as an ARRAY of Objects of Posts by SpotID | allPostsArr: ",
+    allPostsArr
+  );
+  console.log(
+    "Current spot based on the :spotId as an OBJECT in URL of the SpotDetailsPage | currentPostObj: ",
+    currentPostObj
+  );
 
   // USE FOR LIKES
   //   const starRatingsArr = currentSpotcommentsArr.map((comment) => comment.stars);
@@ -50,16 +65,10 @@ const PostDetails = () => {
   // console.log("The Current Seesion User ID as a NUMBER | sessionUser.id: ", sessionUser.id);
   // console.log("The Current Spot Owner ID as a NUMBER | currentPostObj.ownerId: ", currentPostObj.ownerId);
 
-  // CONDITIONAL RENDERING CONSOLE LOGS | UPDATE AND DELETE SPOT
-  // console.log("spotId based on useParams | SPOTID:", spotId)
-  // console.log("All Spots Information as an OBJECT of Objects of Spots by SpotID | allSpotsObj: ", allSpotsObj);
-  // console.log("All Spots Information as an ARRAY of Objects of Spots by SpotID | allSpotsArr: ", allSpotsArr);
-  // console.log("Current spot based on the :spotId as an OBJECT in URL of the SpotDetailsPage | currentPostObj: ", currentPostObj);
-
   // CONDITIONAL RENDERING CONSOLE LOGS | UPDATE AND DELETE comment
   // console.log("All Reviews for current spot as an OBJECT of objects | currentSpotReviewsObj: ", currentSpotReviewsObj);
   // console.log("All Reviews for current spot as an ARRAY of objects | currentSpotReviewsArr: ", currentSpotReviewsArr);
-  // console.log("All Spots Information as an ARRAY of Objects of Spots by SpotID | allSpotsArr: ", allSpotsArr);
+  // console.log("All Posts Information as an ARRAY of Objects of Posts by SpotID | allPostsArr: ", allPostsArr);
   // console.log("Current spot based on the :spotId as an OBJECT in URL of the SpotDetailsPage | currentPostObj: ", currentPostObj);
 
   useEffect(() => {
