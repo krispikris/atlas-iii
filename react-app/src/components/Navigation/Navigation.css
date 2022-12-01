@@ -1,0 +1,6 @@
+.navigation-bar {
+    display: flex;
+    width: 100vw;
+    background-color: rgb(166, 166, 166);
+    border: black solid 10px;
+}

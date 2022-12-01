@@ -104,6 +104,3 @@ export default function sessionReducer(state = initialState, action) {
       return state;
   }
 }
-
-import LoginFormModal from "../Auth/LoginFormModal";
-import SignupFormModal from "../Auth/SignupFormModal";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../../store/session";
@@ -16,6 +16,7 @@ const SignUpForm = () => {
   const [profilePhoto, setProfilePhoto] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [errors, setErrors] = useState([]);
   const [validationErrors, setValidationErrors] = useState([]);
 
   useEffect(() => {

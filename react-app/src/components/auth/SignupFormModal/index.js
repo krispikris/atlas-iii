@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { Modal } from "../../../context/Modal";
 import SignUpForm from "./SignUpForm";
 
-function SignupFormModal() {
+const SignupFormModal = () => {
   const [showModal, setShowModal] = useState(false);
+
+  // console.log(`THIS IS SHOW MODAL: `, showModal);
 
   return (
     <>
@@ -18,6 +20,6 @@ function SignupFormModal() {
       )}
     </>
   );
-}
+};
 
 export default SignupFormModal;
