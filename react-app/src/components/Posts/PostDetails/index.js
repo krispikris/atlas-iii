@@ -5,12 +5,12 @@ import { useParams, Redirect } from "react-router-dom";
 import { getPostThunk } from "../../../store/post";
 import { getCommentsThunk } from "../../../store/comment";
 
-import CreateReviewFormModal from "../../Reviews/CreateReviewFormModal";
-import UpdateReviewFormModal from "../../Reviews/UpdateReviewFormModal";
-import DeleteReviewFormModal from "../../Reviews/DeleteReviewModal";
-
 import UpdatePostFormModal from "../UpdatePostFormModal";
 import DeletePostFormModal from "../DeletePostFormModal";
+
+import DeleteCommentFormModal from "../../Comments/DeleteCommentModal";
+import UpdateCommentFormModal from "../../Comments/UpdateCommentFormModal";
+import CreateCommentFormModal from "../../Comments/CreateCommentFormModal";
 import "./PostDetails.css";
 
 const PostDetails = () => {
@@ -21,21 +21,23 @@ const PostDetails = () => {
   const sessionUser = useSelector((state) => state.session.user); // OBJ | CURRENT SESSION USER | WHO IS LOGGED IN
 
   const allPostsObj = useSelector((state) => state.posts); // OBJ OF OBJS | ALL POSTS
-  const allPostsArr = Object.values(allSpotsObj); // ARR OF OBJS | ALL POSTS
+  const allPostsArr = Object.values(allPostsObj); // ARR OF OBJS | ALL POSTS
   const currentPostObj = allPostsArr.find(
     (post) => post.id === parseInt(postId)
   ); // OBJ | CURRENT SPOT
 
-  const currentPostCommentsObj = useSelector((state) => state.comments); // OBJ OF OBJS | REVIEWS FOR THE CURRENT SPOT DETAILS PAGE
-  const currentPostCommentsArr = Object.values(currentPostCommentsObj); // ARR OF OBJS | REVIEWS FOR THE CURRENT SPOT DETAILS PAGE
+  const currentPostCommentsObj = useSelector((state) => state.comments); // OBJ OF OBJS | commentS FOR THE CURRENT SPOT DETAILS PAGE
+  const currentPostCommentsArr = Object.values(currentPostCommentsObj); // ARR OF OBJS | commentS FOR THE CURRENT SPOT DETAILS PAGE
 
-  const reviewCount = currentSpotReviewsArr.length;
-  const reviewToUpdate = sessionUser
-    ? currentSpotReviewsArr.find((review) => review.userId === sessionUser.id)
+  const commentCount = currentPostCommentsArr.length;
+  const commentToUpdate = sessionUser
+    ? currentPostCommentsArr.find(
+        (comment) => comment.userId === sessionUser.id
+      )
     : undefined;
 
   // USE FOR LIKES
-  //   const starRatingsArr = currentSpotReviewsArr.map((review) => review.stars);
+  //   const starRatingsArr = currentSpotcommentsArr.map((comment) => comment.stars);
   //   // console.log('This is the star ratings as an Array: ', starRatingsArr);
 
   //   const sumOfStarRatings = starRatingsArr.reduce(
@@ -46,19 +48,19 @@ const PostDetails = () => {
   // CONDITIONAL RENDERING CONSOLE LOGS | SESSION USER | OWNER ID
   // console.log('The Current Session User as an OBJECT | sessionUser: ', sessionUser);
   // console.log("The Current Seesion User ID as a NUMBER | sessionUser.id: ", sessionUser.id);
-  // console.log("The Current Spot Owner ID as a NUMBER | currentSpotObj.ownerId: ", currentSpotObj.ownerId);
+  // console.log("The Current Spot Owner ID as a NUMBER | currentPostObj.ownerId: ", currentPostObj.ownerId);
 
   // CONDITIONAL RENDERING CONSOLE LOGS | UPDATE AND DELETE SPOT
   // console.log("spotId based on useParams | SPOTID:", spotId)
   // console.log("All Spots Information as an OBJECT of Objects of Spots by SpotID | allSpotsObj: ", allSpotsObj);
   // console.log("All Spots Information as an ARRAY of Objects of Spots by SpotID | allSpotsArr: ", allSpotsArr);
-  // console.log("Current spot based on the :spotId as an OBJECT in URL of the SpotDetailsPage | currentSpotObj: ", currentSpotObj);
+  // console.log("Current spot based on the :spotId as an OBJECT in URL of the SpotDetailsPage | currentPostObj: ", currentPostObj);
 
-  // CONDITIONAL RENDERING CONSOLE LOGS | UPDATE AND DELETE REVIEW
+  // CONDITIONAL RENDERING CONSOLE LOGS | UPDATE AND DELETE comment
   // console.log("All Reviews for current spot as an OBJECT of objects | currentSpotReviewsObj: ", currentSpotReviewsObj);
   // console.log("All Reviews for current spot as an ARRAY of objects | currentSpotReviewsArr: ", currentSpotReviewsArr);
   // console.log("All Spots Information as an ARRAY of Objects of Spots by SpotID | allSpotsArr: ", allSpotsArr);
-  // console.log("Current spot based on the :spotId as an OBJECT in URL of the SpotDetailsPage | currentSpotObj: ", currentSpotObj);
+  // console.log("Current spot based on the :spotId as an OBJECT in URL of the SpotDetailsPage | currentPostObj: ", currentPostObj);
 
   useEffect(() => {
     dispatch(getPostThunk(postId))
@@ -75,7 +77,7 @@ const PostDetails = () => {
       </div>
     );
   } else {
-    reviewButtons = (
+    commentButtons = (
       <div>
         {sessionUser && currentPostObj?.user_id !== sessionUser?.id && (
           <CreateCommentFormModal />
@@ -88,8 +90,8 @@ const PostDetails = () => {
   if (currentPostObj?.ownerId === sessionUser?.id) {
     postButtons = (
       <div>
-        {/* <UpdateSpotFormModal currentSpotObj={currentSpotObj}/>
-                                <DeleteSpotFormModal currentSpotObj={currentSpotObj}/> */}
+        {/* <UpdateSpotFormModal currentPostObj={currentPostObj}/>
+                                <DeleteSpotFormModal currentPostObj={currentPostObj}/> */}
         <UpdatePostFormModal postToUpdate={currentPostObj} />
         <DeletePostFormModal postToUpdate={currentPostObj} />
       </div>
@@ -106,112 +108,58 @@ const PostDetails = () => {
   return (
     isLoaded && (
       <>
-        <div className="full-spot-page-wrap">
-          <div className="spot-detail-title-container">
-            <h2 id="spot-title">{currentSpotObj?.name}</h2>
-            <h4 id="spot-title-info">
+        <div className="full-post-page-wrap">
+          <div className="post-detail-title-container">
+            <h2 id="post-title">{currentPostObj?.name}</h2>
+            <h4 id="post-title-info">
               <div>
-                <i className="fa-solid fa-star"></i> {starsReviewAvg.toFixed(1)}{" "}
-                ・ {currentSpotObj.numReviews} Reviews ・ {currentSpotObj.city},{" "}
-                {currentSpotObj.state}, {currentSpotObj.country}
+                <i className="fa-solid fa-star"></i>
+                {currentPostObj.title}
               </div>
             </h4>
           </div>
 
-          {currentSpotObj?.SpotImages && (
-            <div className="spot-images-grid">
-              <img
-                className="spot-images-grid-col-2 spot-images-grid-row-2"
-                id="spot-img-1"
-                src={currentSpotObj?.SpotImages[0]?.url || ""}
-                alt="spot-image-inside-grid-1"
-                onError={(e) =>
-                  (e.target.src =
-                    "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
-                }
-              ></img>
-              <img
-                id="spot-img-2"
-                src={currentSpotObj?.SpotImages[1]?.url || ""}
-                alt="spot-image-inside-grid-2"
-                onError={(e) =>
-                  (e.target.src =
-                    "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
-                }
-              ></img>
-              <img
-                id="spot-img-3"
-                src={currentSpotObj?.SpotImages[2]?.url || ""}
-                alt="spot-image-inside-grid-3"
-                onError={(e) =>
-                  (e.target.src =
-                    "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
-                }
-              ></img>
-              <img
-                id="spot-img-4"
-                src={currentSpotObj?.SpotImages[3]?.url || ""}
-                alt="spot-image-inside-grid-4"
-                onError={(e) =>
-                  (e.target.src =
-                    "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
-                }
-              ></img>
-              <img
-                id="spot-img-5"
-                src={currentSpotObj?.SpotImages[4]?.url || ""}
-                alt="spot-image-inside-grid-5"
-                onError={(e) =>
-                  (e.target.src =
-                    "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
-                }
-              ></img>
-              {/* <img src="smiley.gif" alt="Smiley face" width="42" height="42" style="vertical-align:middle;margin:0px 50px"></img> */}
-            </div>
-          )}
-
           <div className="double-card">
-            <div className="spot-detail-info-container">
-              <div id="spot-detail-info">
+            <div className="post-detail-info-container">
+              <div id="post-detail-info">
                 <h2 id="title-header-1">
-                  Treehouse hosted by {currentSpotObj.Owner.firstName}
+                  Treehouse hosted by {currentPostObj.Owner.firstName}
                 </h2>
-                <h3 id="title-price">${currentSpotObj.price} per night</h3>
+                <h3 id="title-price">${currentPostObj.price} per night</h3>
               </div>
 
-              {spotButtons}
+              {postButtons}
 
-              <div id="spot-detail-description">
-                <h4>About {currentSpotObj.name}</h4>
-                <>{currentSpotObj.description}</>
+              <div id="post-detail-description">
+                <h4>About {currentPostObj.name}</h4>
+                <>{currentPostObj.description}</>
               </div>
             </div>
 
-            <div className="reviews-container">
-              <div className="reviews-of-spot">
+            <div className="comments-container">
+              <div className="comments-of-post">
                 <div>
-                  <h4 id="title-header-2">Reviews</h4>
+                  <h4 id="title-header-2">Comments</h4>
                 </div>
-                <div className="review-buttons">{reviewButtons}</div>
+                <div className="comment-buttons">{commentButtons}</div>
 
-                {currentSpotReviewsArr.map((review) => (
-                  <div key={review.id} className="individual-review-container">
-                    {/* {console.log('Review for current Spot as an OBJECT: ', review)} */}
-                    <div id="review-writer">
-                      What {review.User.firstName} says about their
-                      experience...
+                {currentPostCommentsArr.map((comment) => (
+                  <div
+                    key={comment.id}
+                    className="individual-comment-container"
+                  >
+                    {/* {console.log('comment for current Spot as an OBJECT: ', comment)} */}
+                    <div id="comment-writer">
+                      {comment.User.firstName} say...
                     </div>
-                    {/* <div>{review.createdAt}</div>       FIND WAY TO CONVERT INTO MONTH YEAR */}
-                    <div id="review-after">{review.review}</div>
-                    <div>
-                      {review.stars} <i className="fa-solid fa-star"></i> review
-                    </div>
+                    {/* <div>{comment.createdAt}</div>       FIND WAY TO CONVERT INTO MONTH YEAR */}
+                    <div id="comment-after">{comment.comment}</div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-          {/* <DeleteReviewForm /> */}
+          {/* <DeletecommentForm /> */}
           {/* <UpdateSpotFormModal />
         <DeleteButton setIsLoaded={setIsLoaded}/> */}
         </div>

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { createCommentThunk } from "../../../store/comment";
-import "./CreateCommentForm.css";
+import "./CreateCommentFormModal.css";
 
 const CreateCommentForm = ({ setShowModal }) => {
   const dispatch = useDispatch();

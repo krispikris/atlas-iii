@@ -1,8 +1,8 @@
 // frontend/src/components/UpdateCommentModal/UpdateCommentForm.js
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateCommentThunk } from "../../../store/comment";
-import "./UpdateCommentForm.css";
+import "./UpdateCommentFormModal.css";
 
 const UpdateCommentForm = ({ setShowModal, commentToUpdate }) => {
   // updateCommentForm takes in a prop
@@ -13,6 +13,7 @@ const UpdateCommentForm = ({ setShowModal, commentToUpdate }) => {
   const commentId = commentToUpdate.id;
 
   const [comment, setComment] = useState(commentToUpdate.comment);
+  const [errors, setErrors] = useState([]);
   const [validationErrors, setValidationErrors] = useState([]);
 
   // console.log('==================', commentToUpdate);

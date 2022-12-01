@@ -8,6 +8,8 @@ import ProtectedRoute from "./components/Auth/ProtectedRoute";
 import UsersList from "./components/Users/UsersList";
 import User from "./components/Users/User";
 import { authenticate } from "./store/session";
+import GetPosts from "./components/Posts/GetPosts";
+import PostDetails from "./components/Posts/PostDetails";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -40,10 +42,27 @@ const App = () => {
             <UsersList />
           </Route>
           <Route path="/users/:userId" exact={true}>
+            <h1>Current User Information</h1>
             <User />
           </Route>
           <Route path="/" exact={true}>
             <h1>My Home Page</h1>
+          </Route>
+          <Route path="/discover" exact={true}>
+            <h1>Discovery Page</h1>
+            <GetPosts />
+          </Route>
+          <Route path="/posts" exact={true}>
+            <h1>All Posts</h1>
+            <GetPosts />
+          </Route>
+          <Route path="/posts/current" exact={true}>
+            <h1>Current User's Posts</h1>
+            <PostDetails />
+          </Route>
+          <Route path="/posts/:postId" exact={true}>
+            <h1>Post Details</h1>
+            <PostDetails />
           </Route>
         </Switch>
       )}

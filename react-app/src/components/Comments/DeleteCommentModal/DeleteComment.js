@@ -2,7 +2,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteCommentThunk } from "../../../store/comment";
-import "./DeleteComment.css";
+import "./DeleteCommentModal.css";
 
 const DeleteCommentForm = ({ setShowModal, commentToUpdate }) => {
   const dispatch = useDispatch();
