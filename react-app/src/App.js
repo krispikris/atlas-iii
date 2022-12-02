@@ -6,7 +6,6 @@ import User from "./components/Users/User";
 import { authenticate } from "./store/session";
 import GetPosts from "./components/Posts/GetPosts";
 import PostDetails from "./components/Posts/PostDetails";
-import LoginForm from "./components/Auth/LoginFormModal/LoginForm.js";
 import SignUpForm from "./components/Auth/SignupFormModal/SignUpForm";
 import UsersList from "./components/Users/UsersList";
 
@@ -31,9 +30,9 @@ const App = () => {
       <Navigation sessionUser={sessionUser} isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/login" exact={true}>
+          {/* <Route path="/login" exact={true}>
             <LoginForm />
-          </Route>
+          </Route> */}
           <Route path="/signup" exact={true}>
             <SignUpForm />
           </Route>
