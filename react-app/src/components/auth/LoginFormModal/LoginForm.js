@@ -1,7 +1,7 @@
 // react-app/src/components/LoginFormModal/LoginForm.js
 
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login } from "../../../store/session";
 
@@ -37,24 +37,10 @@ const LoginForm = () => {
 
     setErrors([]);
     const data = await dispatch(login(email, password));
+
+    if (data.errors) setValidationErrors(data.errors);
     return history.push("/discover");
-
-    // if (data && data.errors) {
-    //   setErrors(data.errors);
-    // }
   };
-
-  // const updateEmail = (e) => {
-  //   setEmail(e.target.value);
-  // };
-
-  // const updatePassword = (e) => {
-  //   setPassword(e.target.value);
-  // };
-
-  // if (user) {
-  //   return <Redirect to='/' />;
-  // }
 
   return (
     <div className="login-modal">
@@ -112,7 +98,7 @@ const LoginForm = () => {
             }}
             type="submit"
           >
-            Demo User.
+            Demo User
           </button>
         </div>
       </form>

@@ -97,10 +97,6 @@ export const signUp =
       const data = await response.json();
       console.log(`RESOONSE DATA 2`, data);
       return data;
-
-      if (data.errors) {
-        return data.errors;
-      }
     } else {
       return ["An error occurred. Please try again."];
     }

@@ -1,13 +1,10 @@
 // react-app/src/components/Navigation/index.js
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 // when logged in
-import CreatePostForm from "../Posts/CreatePostFormModal/CreatePostForm";
 import CreatePostFormModal from "../Posts/CreatePostFormModal";
 import ProfileButton from "./ProfileButton";
-import LogoutButton from "../Auth/LogoutButton";
 
 // on splash (not logged)
 import SignupFormModal from "../Auth/SignupFormModal";
@@ -18,10 +15,10 @@ const Navigation = ({ isLoaded, sessionUser }) => {
   // const sessionUser = useSelector((state) => state.session.user);
   const [showMenu, setShowMenu] = useState(false);
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
+  // const openMenu = () => {
+  //   if (showMenu) return;
+  //   setShowMenu(true);
+  // };
 
   useEffect(() => {
     if (!showMenu) return;

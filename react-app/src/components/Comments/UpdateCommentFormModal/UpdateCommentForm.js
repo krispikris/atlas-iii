@@ -1,6 +1,6 @@
 // frontend/src/components/UpdateCommentModal/UpdateCommentForm.js
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateCommentThunk } from "../../../store/comment";
 import "./UpdateCommentFormModal.css";
 
@@ -9,11 +9,10 @@ const UpdateCommentForm = ({ setShowModal, commentToUpdate }) => {
   // prop is being deconstructed
 
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.session.user);
+  // const currentUser = useSelector((state) => state.session.user);
   const commentId = commentToUpdate.id;
 
   const [comment, setComment] = useState(commentToUpdate.comment);
-  const [errors, setErrors] = useState([]);
   const [validationErrors, setValidationErrors] = useState([]);
 
   // console.log('==================', commentToUpdate);
@@ -44,7 +43,7 @@ const UpdateCommentForm = ({ setShowModal, commentToUpdate }) => {
       .then(() => setShowModal(false))
       .catch(async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+        if (data && data.errors) setValidationErrors(data.errors);
       });
   };
 

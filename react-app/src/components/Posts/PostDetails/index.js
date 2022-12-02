@@ -123,7 +123,7 @@ const PostDetails = () => {
             <img
               id="post-img"
               src={currentPostObj?.photo}
-              alt="post-image"
+              alt="post-left"
               onError={(e) =>
                 (e.target.src =
                   "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")

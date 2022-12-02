@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Navigation from "./components/Navigation";
 import LoginForm from "./components/Auth/LoginFormModal/LoginForm";
 import SignUpForm from "./components/Auth/SignupFormModal/SignUpForm";
-import ProtectedRoute from "./components/Auth/ProtectedRoute";
 import UsersList from "./components/Users/UsersList";
 import User from "./components/Users/User";
 import { authenticate } from "./store/session";
