@@ -32,7 +32,7 @@ const PostDetails = () => {
   // const commentCount = currentPostCommentsArr.length;
   const commentToUpdate = sessionUser
     ? currentPostCommentsArr.find(
-        (comment) => comment.userId === sessionUser.id
+        (comment) => comment.user_id === sessionUser.id
       )
     : undefined;
 
@@ -75,6 +75,8 @@ const PostDetails = () => {
     dispatch(getPostThunk(postId))
       .then(() => dispatch(getCommentsThunk(postId)))
       .then(() => setIsLoaded(true));
+    let extra = dispatch(getCommentsThunk(postId));
+    console.log(`THIS IS EXTRA VARIABLE +++++++: `, extra);
   }, [dispatch, postId]);
 
   let commentButtons;
@@ -119,29 +121,31 @@ const PostDetails = () => {
       <>
         <div className="full-post-page-wrap">
           <div className="post-detail-title-container">
-            <h2 id="post-title">{currentPostObj?.name}</h2>
-            <h4 id="post-title-info">
-              <div>
-                <i className="fa-solid fa-star"></i>
-                {currentPostObj.title}
-              </div>
-            </h4>
+            <h2 id="post-title">{currentPostObj?.title}</h2>
+            <h4 id="post-title-info"></h4>
+          </div>
+
+          <div id="post-photo">
+            <img
+              id="post-img"
+              src={currentPostObj?.photo}
+              alt="spot-image-inside-grid-1"
+              onError={(e) =>
+                (e.target.src =
+                  "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
+              }
+            ></img>
           </div>
 
           <div className="double-card">
             <div className="post-detail-info-container">
-              <div id="post-detail-info">
-                <h2 id="title-header-1">
-                  atlasPhoto posted by {currentPostObj?.User?.firstName}
-                </h2>
-                {/* <h3 id="title-price">${currentPostObj.price} per night</h3> */}
-              </div>
-
               {postButtons}
 
               <div id="post-detail-description">
-                <h4>About {currentPostObj.name}</h4>
+                <h4>Description</h4>
                 <>{currentPostObj.description}</>
+                <h4>Tips</h4>
+                <>{currentPostObj.tips}</>
               </div>
             </div>
 
@@ -154,15 +158,15 @@ const PostDetails = () => {
 
                 {currentPostCommentsArr.map((comment) => (
                   <div
-                    key={comment.id}
+                    key={comment?.id}
                     className="individual-comment-container"
                   >
                     {/* {console.log('comment for current Spot as an OBJECT: ', comment)} */}
                     <div id="comment-writer">
-                      {comment?.User?.firstName} say...
+                      {comment?.User?.firstName} says...
                     </div>
                     {/* <div>{comment.createdAt}</div>       FIND WAY TO CONVERT INTO MONTH YEAR */}
-                    <div id="comment-after">{comment.comment}</div>
+                    <div id="comment-after">{comment?.comment}</div>
                   </div>
                 ))}
               </div>

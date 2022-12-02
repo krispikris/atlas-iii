@@ -40,7 +40,7 @@ function ProfileButton({ user }) {
       {showMenu && (
         <div className="profile-dropdown">
           <div id="profile-dropdown-1">
-            Welcome back to atlas, {user.firstName}!
+            Welcome back to atlas!
           </div>
           {/* <div id='profile-dropdown-2'>Welcome back to Treebnb</div> */}
           <div id="profile-dropdown-2">{user.username}</div>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { login } from "../../../store/session";
 
 // import * as sessionActions from "../../../store/session";
@@ -9,6 +10,7 @@ import { login } from "../../../store/session";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   // const user = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +36,9 @@ const LoginForm = () => {
     if (validationErrors.length > 0) return;
 
     setErrors([]);
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(login(email, password))
+    return history.push('/discover');
+
     if (data && data.errors) {
       setErrors(data.errors);
     }

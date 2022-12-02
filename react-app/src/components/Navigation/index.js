@@ -67,14 +67,14 @@ const Navigation = ({ isLoaded, sessionUser }) => {
       <div className="navigation">
         <div className="navigation-wrap">
           <div className="navigation-bar">
-            <NavLink exact to="/">
-              <div className="treebnb">
+            <NavLink exact to="/discover">
+              <div className="atlas">
                 <img
-                  className="green-airbnb-logo"
-                  src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1666469050/airbnb-xxl_ep5w6c.png"
+                  className="atlas-logo"
+                  src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1669854216/atlas/Logos/atlas_wte6wc.svg"
                   alt="logo-1"
                 ></img>
-                <div className="atlas-text">atlas*</div>
+                <div className="atlas-text">atlas</div>
               </div>
             </NavLink>
 

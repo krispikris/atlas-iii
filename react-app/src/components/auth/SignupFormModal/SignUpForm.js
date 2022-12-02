@@ -144,7 +144,7 @@ const SignUpForm = () => {
       </div>
 
       <label id="signup-form-title">SIGN UP FORM</label>
-      <label id="welcome-to-treebnb-signup">Welcome to atlas.</label>
+      <label id="welcome-to-atlas-signup">Welcome to atlas.</label>
 
       <div>
         <label id="signup-input-title">User Name</label>
