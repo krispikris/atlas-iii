@@ -36,12 +36,12 @@ const LoginForm = () => {
     if (validationErrors.length > 0) return;
 
     setErrors([]);
-    const data = await dispatch(login(email, password))
-    return history.push('/discover');
+    const data = await dispatch(login(email, password));
+    return history.push("/discover");
 
-    if (data && data.errors) {
-      setErrors(data.errors);
-    }
+    // if (data && data.errors) {
+    //   setErrors(data.errors);
+    // }
   };
 
   // const updateEmail = (e) => {
@@ -103,6 +103,16 @@ const LoginForm = () => {
 
           <button className="login-submit-button" type="submit">
             Login
+          </button>
+          <button
+            className="demo-login-submit-button"
+            onClick={() => {
+              setEmail("demo@aa.io");
+              setPassword("demo");
+            }}
+            type="submit"
+          >
+            Demo User.
           </button>
         </div>
       </form>

@@ -13,7 +13,7 @@ const getPostsAction = (payload) => {
   console.log(`PAYLOAD in GET POSTS ACTION`, payload);
   return {
     type: GET_POSTS,
-    payload: payload
+    payload: payload,
   };
 };
 
@@ -33,7 +33,7 @@ const getUserPostsAction = (payload) => {
   // payload = current_user
   return {
     type: GET_USER_POSTS,
-    payload
+    payload,
   };
 };
 
@@ -42,7 +42,7 @@ const getPostAction = (payload) => {
   // payload = postId
   return {
     type: GET_POST,
-    payload
+    payload,
   };
 };
 
@@ -51,7 +51,7 @@ const createPostAction = (payload) => {
   // payload = post-inputs
   return {
     type: CREATE_POST,
-    payload
+    payload,
   };
 };
 
@@ -60,7 +60,7 @@ const updatePostAction = (payload) => {
   // payload = post-inputs
   return {
     type: UPDATE_POST,
-    payload
+    payload,
   };
 };
 
@@ -69,7 +69,7 @@ const deletePostAction = (payload) => {
   // payload = postId
   return {
     type: DELETE_POST,
-    payload
+    payload,
   };
 };
 
@@ -119,7 +119,7 @@ export const createPostThunk = (payload) => async (dispatch) => {
   });
 
   if (response.ok) {
-    const data = response.json();
+    const data = await response.json();
     dispatch(createPostAction(data));
     return data;
   }
@@ -134,7 +134,7 @@ export const updatePostThunk = (payload, postId) => async (dispatch) => {
   });
 
   if (response.ok) {
-    const data = response.json();
+    const data = await response.json();
     dispatch(updatePostAction(data));
     return data;
   }
@@ -157,7 +157,7 @@ const postReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case GET_POSTS:
-      console.log(`GET_POSTS REDUCER: ++++++++++++++++++++`, action)
+      console.log(`GET_POSTS REDUCER: ++++++++++++++++++++`, action);
       action.payload.Posts.forEach((post) => {
         newState[post.id] = post;
       });

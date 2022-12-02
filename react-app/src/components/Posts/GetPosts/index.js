@@ -14,11 +14,10 @@ const GetPosts = () => {
   console.log("THIS IS THE POSTS VARIABLE: ", posts);
 
   const allPosts = Object.values(posts);
-  console.log('This is all the Posts in an Array ', allPosts)
+  console.log("This is all the Posts in an Array ", allPosts);
 
   useEffect(() => {
-    dispatch(getAllPostsThunk())
-    .then(() => setIsLoaded(true));
+    dispatch(getAllPostsThunk()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
@@ -28,6 +27,11 @@ const GetPosts = () => {
           <div className="all-posts-homepage-container">
             {allPosts.map((post) => (
               <div key={post.id} className="individual-post-container">
+                <div id="post-description-left">
+                  <div id="post-prop-1">{post.location}</div>
+                  <div id="post-prop-2">Shared by {post.user_id}</div>
+                </div>
+                ;
                 <NavLink to={`/posts/${post.id}`}>
                   <img
                     className="post-card"

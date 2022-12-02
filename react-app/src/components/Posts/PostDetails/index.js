@@ -98,38 +98,26 @@ const PostDetails = () => {
   }
 
   let postButtons;
-  if (currentPostObj?.ownerId === sessionUser?.id) {
+  if (currentPostObj?.user_id === sessionUser?.id) {
     postButtons = (
       <div>
-        {/* <UpdateSpotFormModal currentPostObj={currentPostObj}/>
-                                <DeleteSpotFormModal currentPostObj={currentPostObj}/> */}
         <UpdatePostFormModal postToUpdate={currentPostObj} />
         <DeletePostFormModal postToUpdate={currentPostObj} />
       </div>
     );
   }
-  // else {
-  //     spotButtons =     <div>
-  //                             <CreateSpotFormModal />
-  //                         </div>;
-  // }
 
-  if (isLoaded && !currentPostObj) return <Redirect to="/" />;
+  if (isLoaded && !currentPostObj) return <Redirect to="/discover" />;
 
   return (
     isLoaded && (
       <>
-        <div className="full-post-page-wrap">
-          <div className="post-detail-title-container">
-            <h2 id="post-title">{currentPostObj?.title}</h2>
-            <h4 id="post-title-info"></h4>
-          </div>
-
-          <div id="post-photo">
+        <div class="a-full-post-page-wrap">
+          <div class="a1-left-post-photo">
             <img
               id="post-img"
               src={currentPostObj?.photo}
-              alt="spot-image-inside-grid-1"
+              alt="post-image"
               onError={(e) =>
                 (e.target.src =
                   "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
@@ -137,44 +125,40 @@ const PostDetails = () => {
             ></img>
           </div>
 
-          <div className="double-card">
-            <div className="post-detail-info-container">
-              {postButtons}
-
-              <div id="post-detail-description">
-                <h4>Description</h4>
-                <>{currentPostObj.description}</>
-                <h4>Tips</h4>
-                <>{currentPostObj.tips}</>
-              </div>
+          <div class="a2-right-details">
+            <div class="a2a-username-location">
+              <p id="a2a-1">username placement{currentPostObj?.user_id}</p>
+              <p id="a2a-2">location placement{currentPostObj?.location}</p>
+              <div id="edit-post-buttons">{postButtons}</div>
             </div>
 
-            <div className="comments-container">
-              <div className="comments-of-post">
-                <div>
-                  <h4 id="title-header-2">Comments</h4>
-                </div>
-                <div className="comment-buttons">{commentButtons}</div>
+            <div class="a2b-description-tips">
+              <p id="a2b-1">
+                description placement{currentPostObj?.description}
+              </p>
+              <p id="a2b-2">tips placement{currentPostObj?.tips}</p>
+            </div>
 
+            <div class="a2c-comments-container">
+              <div id="a2c-1-comments">
                 {currentPostCommentsArr.map((comment) => (
                   <div
                     key={comment?.id}
                     className="individual-comment-container"
+                    id="a2c-2-individual-comments"
                   >
                     {/* {console.log('comment for current Spot as an OBJECT: ', comment)} */}
-                    <div id="comment-writer">
-                      {comment?.User?.firstName} says...
+                    <div id="a2c-3-comment-writer">
+                      {comment?.User?.firstName}username placement:
                     </div>
                     {/* <div>{comment.createdAt}</div>       FIND WAY TO CONVERT INTO MONTH YEAR */}
-                    <div id="comment-after">{comment?.comment}</div>
+                    <div id="a2c-4-comment">{comment?.comment}</div>
+                    <div id="a2c-5-comment-buttons">{commentButtons}</div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-          {/* <DeletecommentForm /> */}
-          {/* <UpdateSpotFormModal />
-        <DeleteButton setIsLoaded={setIsLoaded}/> */}
         </div>
       </>
     )

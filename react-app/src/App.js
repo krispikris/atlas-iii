@@ -45,7 +45,7 @@ const App = () => {
             <h1>Current User Information</h1>
             <User />
           </Route>
-          <Route path="/" exact={true}>
+          <Route path="/home" exact={true}>
             <h1>My Home Page</h1>
           </Route>
           <Route path="/discover" exact={true}>
@@ -60,7 +60,6 @@ const App = () => {
             <h1>Current User's Posts</h1>
           </Route>
           <Route path="/posts/:postId" exact={true}>
-            <h1>Post Details</h1>
             <PostDetails />
           </Route>
         </Switch>

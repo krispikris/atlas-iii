@@ -132,6 +132,7 @@ const commentsReducer = (state = initialState, action) => {
     case DELETE_COMMENT:
       newState = { ...state };
       delete newState[action.payload];
+      return newState;
 
     default:
       return state;

@@ -1,11 +1,13 @@
 // frontend/src/components/DeleteReviewModal/DeleteReviewForm.js
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { deletePostThunk } from "../../../store/post";
 import "./DeletePostForm.css";
 
 const DeletePostForm = ({ setShowModal, postToUpdate }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   // console.log('======', postToUpdate);
 
@@ -14,6 +16,7 @@ const DeletePostForm = ({ setShowModal, postToUpdate }) => {
 
     await dispatch(deletePostThunk(postToUpdate.id));
     setShowModal(false);
+    return history.push("/discover");
   };
 
   return (
