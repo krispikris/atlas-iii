@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Navigation from "./components/Navigation";
-
-// import User from "./components/Users/User";
+import User from "./components/Users/User";
 import { authenticate } from "./store/session";
 import GetPosts from "./components/Posts/GetPosts";
 import PostDetails from "./components/Posts/PostDetails";
