@@ -38,8 +38,11 @@ const LoginForm = () => {
     setErrors([]);
     const data = await dispatch(login(email, password));
 
-    if (data.errors) setValidationErrors(data.errors);
-    return history.push("/discover");
+    if (data) {
+      setValidationErrors(data);
+    } else {
+      return history.push("/discover");
+    }
   };
 
   return (
