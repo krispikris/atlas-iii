@@ -58,10 +58,6 @@ const SignUpForm = () => {
       );
     }
 
-    //   if (!imageURL || !imageURL.match(/\/{2}.+?\.(jpg|png|gif|jpeg)/gm)) {
-    //     errors.push("Please enter valid image url.");
-    //   }
-
     if (!password || password.length < 3 || password.length > 30) {
       errors.push(
         "Please enter valid password. password must be more than 3 and less than 30 characters."

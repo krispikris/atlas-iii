@@ -18,9 +18,11 @@ class User(db.Model, UserMixin):
     profile_photo = db.Column(db.String(255), unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    #relationships
-    posts = db.relationship("Post", back_populates="users", cascade="all, delete")
-    comments = db.relationship("Comment", back_populates="users", cascade="all, delete")
+    # relationships
+    posts = db.relationship(
+        "Post", back_populates="users", cascade="all, delete")
+    comments = db.relationship(
+        "Comment", back_populates="users", cascade="all, delete")
 
     @property
     def password(self):
@@ -53,5 +55,5 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'bio': self.bio,
             'profile_photo': self.profile_photo,
-            'Posts': [ post.to_dict() for post in self.posts ]
+            'Posts': [post.to_dict() for post in self.posts]
         }

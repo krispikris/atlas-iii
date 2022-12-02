@@ -24,7 +24,7 @@ def authenticate():
     Authenticates a user.
     """
     if current_user.is_authenticated:
-        return current_user.to_dict()
+        return current_user.to_dict_with_posts()
     return {'errors': ['Unauthorized']}
 
 
@@ -41,7 +41,7 @@ def login():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
-        return user.to_dict()
+        return user.to_dict_with_posts()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -61,16 +61,26 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
-        user = User(
-            username=form.data['username'],
-            email=form.data['email'],
-            password=form.data['password']
-        )
-        db.session.add(user)
-        db.session.commit()
-        login_user(user)
-        return user.to_dict()
+        # user = User(
+        #     username=form.data['username'],
+        #     first_name=form.data['first_name'],
+        #     last_name=form.data['last_name'],
+        #     email=form.data['email'],
+        #     bio=form.data['bio'],
+        #     profile_photo=form.data['profile_photo'],
+        #     password=form.data['password'],
+        #     repeatPassword=form.data['repeatPassword']
+        # )
+
+        # db.session.add(user)
+        # db.session.commit()
+        # login_user(user)
+
+        # return user.to_dict_with_posts()
+        print("THIS IS FORM.DATA", form.data)
+        return 'helllloo'
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
