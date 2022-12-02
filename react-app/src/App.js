@@ -6,7 +6,7 @@ import User from "./components/Users/User";
 import { authenticate } from "./store/session";
 import GetPosts from "./components/Posts/GetPosts";
 import PostDetails from "./components/Posts/PostDetails";
-import LoginForm from "./components/Auth/LoginFormModal/LoginForm";
+import LoginForm from "./components/Auth/LoginFormModal/LoginForm.js";
 import SignUpForm from "./components/Auth/SignupFormModal/SignUpForm";
 import UsersList from "./components/Users/UsersList";
 
