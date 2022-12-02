@@ -7,8 +7,8 @@ import CreatePostFormModal from "../Posts/CreatePostFormModal";
 import ProfileButton from "./ProfileButton";
 
 // on splash (not logged)
-import SignupFormModal from "../Auth/SignupFormModal";
 import LoginFormModal from "../Auth/LoginFormModal";
+import SignupFormModal from "../Auth/SignupFormModal";
 import "./Navigation.css";
 
 const Navigation = ({ isLoaded, sessionUser }) => {
@@ -47,10 +47,8 @@ const Navigation = ({ isLoaded, sessionUser }) => {
     sessionLinks = (
       <>
         <div className="session-buttons-nli">
-          <div id="signup-button">
-            <SignupFormModal />
-          </div>
-
+          <div id="signup-button"></div>
+          <SignupFormModal />
           <div id="login-button">
             <LoginFormModal />
           </div>
