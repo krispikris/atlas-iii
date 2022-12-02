@@ -6,7 +6,6 @@ import User from "./components/Users/User";
 import { authenticate } from "./store/session";
 import GetPosts from "./components/Posts/GetPosts";
 import PostDetails from "./components/Posts/PostDetails";
-import SignUpForm from "./components/Auth/SignupFormModal/SignUpForm";
 import UsersList from "./components/Users/UsersList";
 
 const App = () => {
@@ -33,9 +32,9 @@ const App = () => {
           {/* <Route path="/login" exact={true}>
             <LoginForm />
           </Route> */}
-          <Route path="/signup" exact={true}>
+          {/* <Route path="/signup" exact={true}>
             <SignUpForm />
-          </Route>
+          </Route> */}
           <Route path="/users" exact={true}>
             <UsersList />
           </Route>
