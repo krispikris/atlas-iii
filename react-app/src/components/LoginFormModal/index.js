@@ -1,8 +1,8 @@
 // react-app/src/components/LoginFormModal/index.js
 import React, { useState } from "react";
-import { Modal } from "../../../context/Modal";
+import { Modal } from "../../context/Modal";
 import LoginForm from "./LoginForm";
-import "./LoginFormModal.css"
+import "./LoginFormModal.css";
 
 const LoginFormModal = () => {
   const [showModal, setShowModal] = useState(false);
