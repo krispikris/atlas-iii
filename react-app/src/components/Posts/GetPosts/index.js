@@ -29,9 +29,9 @@ const GetPosts = () => {
               <div key={post.id} className="individual-post-container">
                 <div id="post-description-left">
                   <div id="post-prop-1">{post.location}</div>
-                  <div id="post-prop-2">Shared by {post.user_id}</div>
+                  <div id="post-prop-2">Shared by {post.User.username}</div>
                 </div>
-                ;
+
                 <NavLink to={`/posts/${post.id}`}>
                   <img
                     className="post-card"

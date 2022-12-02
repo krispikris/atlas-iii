@@ -66,8 +66,14 @@ const PostDetails = () => {
   // console.log("The Current Spot Owner ID as a NUMBER | currentPostObj.ownerId: ", currentPostObj.ownerId);
 
   // CONDITIONAL RENDERING CONSOLE LOGS | UPDATE AND DELETE comment
-  // console.log("All Reviews for current spot as an OBJECT of objects | currentSpotReviewsObj: ", currentSpotReviewsObj);
-  // console.log("All Reviews for current spot as an ARRAY of objects | currentSpotReviewsArr: ", currentSpotReviewsArr);
+  console.log(
+    "All Comments for current Post as an OBJECT of objects | currentPostCommentsObj: ",
+    currentPostCommentsObj
+  );
+  console.log(
+    "All Comments for current Post as an ARRAY of objects | currentPostCommentsArr: ",
+    currentPostCommentsArr
+  );
   // console.log("All Posts Information as an ARRAY of Objects of Posts by SpotID | allPostsArr: ", allPostsArr);
   // console.log("Current spot based on the :spotId as an OBJECT in URL of the SpotDetailsPage | currentPostObj: ", currentPostObj);
 
@@ -127,16 +133,14 @@ const PostDetails = () => {
 
           <div class="a2-right-details">
             <div class="a2a-username-location">
-              <p id="a2a-1">username placement{currentPostObj?.user_id}</p>
-              <p id="a2a-2">location placement{currentPostObj?.location}</p>
+              <p id="a2a-1">{currentPostObj?.User.username}</p>
+              <p id="a2a-2">{currentPostObj?.location}</p>
               <div id="edit-post-buttons">{postButtons}</div>
             </div>
 
             <div class="a2b-description-tips">
-              <p id="a2b-1">
-                description placement{currentPostObj?.description}
-              </p>
-              <p id="a2b-2">tips placement{currentPostObj?.tips}</p>
+              <p id="a2b-1-description">{currentPostObj?.description}</p>
+              <p id="a2b-2-tips">{currentPostObj?.tips}</p>
             </div>
 
             <div class="a2c-comments-container">
@@ -147,16 +151,13 @@ const PostDetails = () => {
                     className="individual-comment-container"
                     id="a2c-2-individual-comments"
                   >
-                    {/* {console.log('comment for current Spot as an OBJECT: ', comment)} */}
-                    <div id="a2c-3-comment-writer">
-                      {comment?.User?.firstName}username placement:
+                    <div id="a2c-3-comment">
+                      {comment?.User?.username}: {comment?.comment}
                     </div>
-                    {/* <div>{comment.createdAt}</div>       FIND WAY TO CONVERT INTO MONTH YEAR */}
-                    <div id="a2c-4-comment">{comment?.comment}</div>
-                    <div id="a2c-5-comment-buttons">{commentButtons}</div>
                   </div>
                 ))}
               </div>
+              <div class="a2d-5-update-comment-buttons">{commentButtons}</div>
             </div>
           </div>
         </div>

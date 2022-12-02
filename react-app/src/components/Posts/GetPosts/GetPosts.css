@@ -30,8 +30,8 @@
     }
 } */
 
-.spot-card {
-    border-radius: 5%;
+.post-card {
+    border-radius: 2%;
     width: 400px;
     height: 400px;
     display: flex;
@@ -45,11 +45,11 @@
     object-fit: cover;
 }
 
-.spot-card:hover {
+.post-card:hover {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
 }
 
-.spot-description-container {
+.post-description-container {
     text-decoration: none;
     color: black;
     margin-top: 11px;
@@ -60,11 +60,11 @@
     width: 400px;
 }
 
-#spot-description-left {
+#post-description-left {
     width: 50%;
 }
 
-#spot-description-right {
+#post-description-right {
     width: 50%;
     text-align: end;
     margin-right: 15px;

@@ -26,10 +26,6 @@ class Post(db.Model):
 
 
     def to_dict(self):
-        # dicted
-        # if self.users:
-        #     dicted = self.users.to_dict()
-
         return {
             'id': self.id,
             'user_id': self.user_id,
@@ -39,5 +35,7 @@ class Post(db.Model):
             'description': self.description,
             'tips': self.tips,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'User': self.users.to_dict(),
+            'Comments': [ comment.to_dict() for comment in self.comments ]
         }

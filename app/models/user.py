@@ -43,3 +43,15 @@ class User(db.Model, UserMixin):
             'bio': self.bio,
             'profile_photo': self.profile_photo
         }
+
+    def to_dict_with_posts(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'email': self.email,
+            'bio': self.bio,
+            'profile_photo': self.profile_photo,
+            'Posts': [ post.to_dict() for post in self.posts ]
+        }
