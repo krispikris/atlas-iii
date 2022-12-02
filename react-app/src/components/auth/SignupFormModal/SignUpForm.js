@@ -98,6 +98,7 @@ const SignUpForm = () => {
           password
         )
       );
+      console.log(`SIGNUP FORM FRONT END DATA`, data);
       if (data && data.errors) {
         setErrors(data.errors);
       }

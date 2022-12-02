@@ -90,12 +90,13 @@ export const signUp =
 
     if (response.ok) {
       const data = await response.json();
-      console.log(`RESOONSE DATA 1`, data);
+      console.log(`RESPONSE DATA 1`, data);
       dispatch(setUser(data));
       return data;
     } else if (response.status < 500) {
       const data = await response.json();
       console.log(`RESOONSE DATA 2`, data);
+      return data;
 
       if (data.errors) {
         return data.errors;
