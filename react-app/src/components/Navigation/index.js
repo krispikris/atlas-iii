@@ -7,8 +7,8 @@ import CreatePostFormModal from "../Posts/CreatePostFormModal";
 import ProfileButton from "./ProfileButton";
 
 // on splash (not logged)
-import LoginFormModal from "../Auth/LoginFormModal";
-import SignupFormModal from "../Auth/SignupFormModal";
+import SignupFormModal from "../SignupFormModal";
+import LoginFormModal from "../LoginFormModal";
 import "./Navigation.css";
 
 const Navigation = ({ isLoaded, sessionUser }) => {
