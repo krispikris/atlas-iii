@@ -11,10 +11,14 @@ def validation_errors_to_error_messages(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
     """
+    print("VALIDATION ERRORS: AUTH ROUTES:", validation_errors)
+
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
             errorMessages.append(f'{field} : {error}')
+
+    print("ERROR MESSAGES: AUTH ROUTES:", errorMessages)
     return errorMessages
 
 
@@ -62,25 +66,28 @@ def sign_up():
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    print("REQUEST JSON", request.json)
+
     if form.validate_on_submit():
-        # user = User(
-        #     username=form.data['username'],
-        #     first_name=form.data['first_name'],
-        #     last_name=form.data['last_name'],
-        #     email=form.data['email'],
-        #     bio=form.data['bio'],
-        #     profile_photo=form.data['profile_photo'],
-        #     password=form.data['password'],
-        #     repeatPassword=form.data['repeatPassword']
-        # )
+        print("THIS IS FORM.DATA: AUTH ROUTES:", form.data)
+        user = User(
+            username=form.data['username'],
+            first_name=form.data['first_name'],
+            last_name=form.data['last_name'],
+            email=form.data['email'],
+            bio=form.data['bio'],
+            profile_photo=form.data['profile_photo'],
+            password=form.data['password']
+            # repeatPassword=form.data['repeatPassword']
+        )
 
-        # db.session.add(user)
-        # db.session.commit()
-        # login_user(user)
+        db.session.add(user)
+        db.session.commit()
+        login_user(user)
 
-        # return user.to_dict_with_posts()
-        print("THIS IS FORM.DATA", form.data)
-        return 'helllloo'
+        return user.to_dict_with_posts()
+
+    print("FORM.ERRORS", form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

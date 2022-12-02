@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, Email, ValidationError, URL
+from wtforms.validators import DataRequired, Email, ValidationError, URL, Regexp
 from app.models import User
 
 
@@ -27,6 +27,6 @@ class SignUpForm(FlaskForm):
     last_name = StringField('last_name')
     email = StringField('email', validators=[DataRequired(), email_exists])
     bio = StringField('bio')
-    profile_photo = StringField(
-        validators=[URL(require_tld=True, message='Must be a valid URL')]),
+    profile_photo = StringField('profile_photo', validators=[Regexp(
+        '^$|(?:http\:|https\:)?\/\/.*\.(?:png|jpg|jpeg)', message='Please use a valid image URL (https://ex.jpg/jpeg/png)')])
     password = StringField('password')
