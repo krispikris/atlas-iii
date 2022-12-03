@@ -30,26 +30,28 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  <img
+    id="a1a-logo"
+    src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670025206/atlas/Logos/atlas-burnt_mlh2yx.png"
+  ></img>;
+
   return (
     <>
-      <button className="dropdown-button" onClick={openMenu}>
-        <i className="fa-solid fa-bars"></i>
-        <i className="fas fa-user-circle" />
-      </button>
+      <div class="a2b-2-pic-username-container">
+        <div class="a2b-2a-profile-pic">
+          <img id="a2b-2b-profile-pic" src={user.profile_photo}></img>
+        </div>
+        <div class="a2b-3-username" onClick={openMenu}>
+          {user.username}
+        </div>
+      </div>
 
       {showMenu && (
-        <div className="profile-dropdown">
-          <div id="profile-dropdown-1">
-            Welcome back to atlas!
-          </div>
-          {/* <div id='profile-dropdown-2'>Welcome back to Treebnb</div> */}
-          <div id="profile-dropdown-2">{user.username}</div>
-          <div id="profile-dropdown-3">{user.email}</div>
-          {/* YOOUR SPOTS? */}
-          <div id="profile-dropdown-4">
-            <button id="profile-logout-button" onClick={logout}>
-              Log Out
-            </button>
+        <div className="a2b-profile-dropdown-menu">
+          <div id="a2b-1-pd-1">My Profile</div>
+          <hr></hr>
+          <div id="a2b-1-pd-2" onClick={logout}>
+            Logout
           </div>
         </div>
       )}

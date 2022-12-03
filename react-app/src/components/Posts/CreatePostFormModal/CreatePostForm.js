@@ -76,30 +76,30 @@ const CreatePostForm = ({ setShowModal }) => {
   };
 
   return (
-    <form className="create-new-post-form" onSubmit={handleSubmit}>
-      <div className="errors-create-post-form">
-        {validationErrors.length > 0 && (
-          <ul className="create-post-errors">
-            {validationErrors.map((e) => (
-              <li key={e}>{e}</li>
-            ))}
-          </ul>
-        )}
-      </div>
+    <div class="create-post-form-modal-container">
+      <form className="create-new-post-form" onSubmit={handleSubmit}>
+        <div className="errors-create-post-form">
+          {validationErrors.length > 0 && (
+            <ul className="create-post-errors">
+              {validationErrors.map((e) => (
+                <li key={e}>{e}</li>
+              ))}
+            </ul>
+          )}
+        </div>
 
-      <label id="upload-post-form-title">UPLOAD POST</label>
-      <label id="welcome-back-to-atlas">Welcome back to atlas!</label>
+        <label id="upload-post-form-title">Share a Place</label>
 
-      <label id="post-input-title">Photo URL</label>
-      <input
-        id="post-form-inputs"
-        type="text"
-        name="photo"
-        value={photo}
-        onChange={(e) => setPhoto(e.target.value)}
-      />
+        <label id="post-input-title">Photo URL</label>
+        <input
+          id="post-form-inputs"
+          type="text"
+          name="photo"
+          value={photo}
+          onChange={(e) => setPhoto(e.target.value)}
+        />
 
-      {/* <label id="post-input-title">Upload Image URL</label>
+        {/* <label id="post-input-title">Upload Image URL</label>
             <input
               id="post-form-inputs"
               type="url"
@@ -108,46 +108,62 @@ const CreatePostForm = ({ setShowModal }) => {
               onChange={(e) => setimageURL(e.target.value)}
             /> */}
 
-      <label id="post-input-title">Title</label>
-      <input
-        id="post-form-inputs"
-        type="text"
-        name="title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
+        <label id="post-input-title">Title</label>
+        <input
+          id="post-form-inputs"
+          type="text"
+          name="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
-      <label id="post-input-title">Location</label>
-      <input
-        id="post-form-inputs"
-        type="text"
-        name="location"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-      />
+        <label id="post-input-title">Please tell us the exact loaction</label>
+        <label id="post-input-title">
+          Be as precise as possible so other travelers can find your exerience.
+        </label>
+        <input
+          id="post-form-inputs"
+          type="text"
+          name="location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
 
-      <label id="post-input-title">Description</label>
-      <input
-        id="post-form-inputs"
-        type="text"
-        name="description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
+        <label id="post-input-title">Tell us your story (optional)</label>
+        <label id="post-input-title">
+          In order to inspire and help other travelers on Mapify, write your
+          description of the Places as detailed as possible. You can even share
+          links by adding them directly in the text.
+        </label>
+        <input
+          id="post-form-inputs"
+          type="text"
+          name="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
 
-      <label id="post-input-title">tips</label>
-      <input
-        id="post-form-inputs"
-        type="text"
-        name="tips"
-        value={tips}
-        onChange={(e) => setTips(e.target.value)}
-      />
+        <label id="post-input-title">
+          Tips of how to get the perfect photo
+        </label>
+        <label id="post-input-title">
+          Please share camera settings and useful tips to get to this specific
+          location.
+        </label>
 
-      <button className="post-submit-button" type="submit">
-        Submit Post
-      </button>
-    </form>
+        <input
+          id="post-form-inputs"
+          type="text"
+          name="tips"
+          value={tips}
+          onChange={(e) => setTips(e.target.value)}
+        />
+
+        <button className="post-submit-button" type="submit">
+          Publish Place
+        </button>
+      </form>
+    </div>
   );
 };
 

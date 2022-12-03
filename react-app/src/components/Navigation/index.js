@@ -59,46 +59,43 @@ const Navigation = ({ isLoaded, sessionUser }) => {
 
   return (
     <>
-      <div className="navigation">
-        <div className="navigation-wrap">
-          <div className="navigation-bar">
-            <NavLink exact to="/discover">
-              <div className="atlas">
-                <img
-                  className="atlas-logo"
-                  src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1669854216/atlas/Logos/atlas_wte6wc.svg"
-                  alt="logo-1"
-                ></img>
-                <div className="atlas-text">atlas</div>
-              </div>
-            </NavLink>
-
-            <div>{isLoaded && sessionLinks}</div>
-          </div>
+      <div class="a-navbar">
+        <div id="a1-logo-orange">
+          <NavLink id="a1a-logo" exact to="/discover">
+            <img
+              id="a1a-logo"
+              src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670025206/atlas/Logos/atlas-burnt_mlh2yx.png"
+            ></img>
+          </NavLink>
         </div>
+
+        <div id="a2-upload-and-profile">{isLoaded && sessionLinks}</div>
       </div>
-
-      {/* <div className="footer-bar-wrap">
-        <div id="footer-left">
-          <div id="created-by-name">
-            2022 Created and Styled by Kristopher Han
-          </div>
-          <div id="social-icons">
-            <a href="https://github.com/krispikris" target="_blank">
-              <i id="github-icon" className="fa-brands fa-github"></i>
-            </a>
-
-            <a href="https://www.linkedin.com/in/kristopherhan" target="_blank">
-              <i id="linkedin-icon" className="fa-brands fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 };
 
 export default Navigation;
+
+// return (
+//   <>
+//     <div className="navigation">
+//       <div className="navigation-bar">
+//         <NavLink exact to="/discover">
+//           <div className="atlas">
+//             <img
+//               className="atlas-logo"
+//               src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670025206/atlas/Logos/atlas-burnt_mlh2yx.png"
+//               alt="logo-1"
+//             ></img>
+//           </div>
+//         </NavLink>
+
+//         <div>{isLoaded && sessionLinks}</div>
+//       </div>
+//     </div>
+//   </>
+// );
 
 // return (
 //   <nav>

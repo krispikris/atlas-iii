@@ -7,12 +7,13 @@ const CreatePostFormModal = () => {
 
   return (
     <>
-      <button
-        className="create-post-button-in-modal"
+      <div
+        class="a2-navbar-right"
+        id="a2a-navbar-right-upload-post-text-to-modal"
         onClick={() => setShowModal(true)}
       >
-        Upload Post
-      </button>
+        Upload
+      </div>
 
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
