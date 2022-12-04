@@ -22,7 +22,7 @@ const DeletePostForm = ({ setShowModal, postToUpdate }) => {
   return (
     <>
       <form className="delete-post-form" onSubmit={deletePost}>
-        <label id="delete-post-title">DELETE YOUR Post</label>
+        <label id="delete-post-title">Delete Post</label>
         <h3 id="delete-post-confirmation">
           Are you sure you want to delete your post?
         </h3>

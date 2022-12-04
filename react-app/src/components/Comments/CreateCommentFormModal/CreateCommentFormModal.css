@@ -1,20 +1,21 @@
 .create-comment-button-in-modal {
-    color: white;
-    background-color: rgba(128, 60, 0, 8.98);
-    border-radius: 13px;
-    width: 125px;
-    height: 40px;
-    margin-right: 20px;
+    color: #333333;
+    font-size: 50px;
 }
 
 .create-comment-button-in-modal:hover {
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7)
+    text-shadow: 3px 5px 5px rgba(0, 0, 0, 0.4)
 }
 
-.create-comment-form {
+.comment-form-main-container {
     display: flex;
     flex-direction: column;
-    width: 700px;
+    justify-content: center;
+    width: 650px;
+    height: 500px;
+    align-items: center;
+    border: red solid 10px;
+    margin-top: -60px;
 }
 
 #create-comment-title {
@@ -22,63 +23,47 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-family: Sailec-Medium, "Helvetica Neue",
+        Arial,
+        sans-serif;
     font-size: 28px;
-    color: rgb(118, 118, 118);
+    color: rgb(128, 60, 0);
+    margin-top: -10px;
 }
 
-#how-was-your-experience {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-size: 30px;
-    color: green;
-}
 
 #create-comment-input-title {
-    margin-left: 4px;
-    margin-bottom: 2px;
-    font-size: 17px;
+    font-size: 36px;
     font-weight: bold;
+    margin-bottom: 30px;
 }
 
-#create-comment-input-1 {
-    padding: 4px;
+#create-comment-input {
     margin-bottom: 15px;
     border-radius: 8px;
-    height: 100px;
+    height: 70%;
+    width: 100%;
     font-size: 20px;
     font-family: Sailec-Light, "Helvetica Neue", Arial, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-#create-comment-input-2 {
-    padding: 4px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    height: 35px;
-    font-size: 20px;
-}
-
-#create-comment-input-1:hover {
+#create-comment-input:hover {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    background-color: rgb(212, 223, 215)
-}
-
-#create-comment-input-2:hover {
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    background-color: rgb(212, 223, 215)
+    background-color: rgb(224, 224, 224)
 }
 
 #create-comment-submit {
     color: white;
-    background-color: rgb(90, 131, 103);
-    height: 60px;
+    background-color: rgb(128, 60, 0);
+    height: 45px;
+    width: 100%;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     font-size: 17px;
     font-weight: bold;
+    margin-bottom: 50px;
 }
 
 #create-comment-submit:hover {
@@ -87,5 +72,6 @@
 
 .create-comment-errors {
     font-family: Sailec-Light, "Helvetica Neue", Arial, sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 16px;
 }

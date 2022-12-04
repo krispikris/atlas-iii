@@ -7,12 +7,12 @@ const CreateCommentFormModal = () => {
 
   return (
     <>
-      <button
+      <div
         className="create-comment-button-in-modal"
         onClick={() => setShowModal(true)}
       >
-        Post Comment
-      </button>
+        +
+      </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CreateCommentForm setShowModal={setShowModal} />

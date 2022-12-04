@@ -117,7 +117,7 @@ const CreatePostForm = ({ setShowModal }) => {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label id="post-input-title">Please tell us the exact loaction</label>
+        <label id="pi-title">Please tell us the exact loaction</label>
         <label id="post-input-title">
           Be as precise as possible so other travelers can find your exerience.
         </label>
@@ -129,11 +129,10 @@ const CreatePostForm = ({ setShowModal }) => {
           onChange={(e) => setLocation(e.target.value)}
         />
 
-        <label id="post-input-title">Tell us your story (optional)</label>
+        <label id="pi-title">Tell us your story (optional)</label>
         <label id="post-input-title">
-          In order to inspire and help other travelers on Mapify, write your
-          description of the Places as detailed as possible. You can even share
-          links by adding them directly in the text.
+          Help to inspire other travelers on atlas, write your description as
+          detailed as possible.
         </label>
         <input
           id="post-form-inputs"
@@ -143,9 +142,7 @@ const CreatePostForm = ({ setShowModal }) => {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <label id="post-input-title">
-          Tips of how to get the perfect photo
-        </label>
+        <label id="pi-title">Tips of how to get the perfect photo</label>
         <label id="post-input-title">
           Please share camera settings and useful tips to get to this specific
           location.

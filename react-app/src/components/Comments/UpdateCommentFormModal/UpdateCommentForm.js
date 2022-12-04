@@ -51,7 +51,7 @@ const UpdateCommentForm = ({ setShowModal, commentToUpdate }) => {
     <form className="update-comment-form" onSubmit={handleSubmit}>
       <div className="errors-create-comment-form">
         {validationErrors.length > 0 && (
-          <ul className="create-comment-errors">
+          <ul className="update-comment-errors">
             {validationErrors.map((e) => (
               <li key={e}>{e}</li>
             ))}
@@ -59,11 +59,10 @@ const UpdateCommentForm = ({ setShowModal, commentToUpdate }) => {
         )}
       </div>
 
-      <label id="update-comment-title">UPDATE YOUR Comment</label>
+      <label id="update-comment-title">Update Comment</label>
 
-      <label id="update-comment-input-title">Updated Comment</label>
       <textarea
-        id="update-comment-input-1"
+        id="update-comment-input"
         type="text"
         name="comment"
         value={comment}

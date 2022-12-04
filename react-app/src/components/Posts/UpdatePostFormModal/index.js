@@ -8,12 +8,13 @@ const UpdatePostFormModal = ({ postToUpdate }) => {
 
   return (
     <>
-      <button
+      <img
         className="update-post-button-in-modal"
         onClick={() => setShowModal(true)}
-      >
-        Update Post
-      </button>
+        id="post-img-"
+        src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670170044/atlas/Icons/editing_pyrt35.png"
+        alt="post-left-3"
+      ></img>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <UpdatePostForm

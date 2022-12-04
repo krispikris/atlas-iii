@@ -47,39 +47,40 @@ const CreateCommentForm = ({ setShowModal }) => {
 
   return (
     <>
-      {errors.map((err, i) => {
-        <div className="comment-errors" key={i}>
-          {err}
-        </div>;
-      })}
+      <div class="comment-form-main-container">
+        {errors.map((err, i) => {
+          <div className="comment-errors" key={i}>
+            {err}
+          </div>;
+        })}
 
-      <div className="errors-create-comment-form">
-        {validationErrors.length > 0 && (
-          <ul className="create-comment-errors">
-            {validationErrors.map((e) => (
-              <li key={e}>{e}</li>
-            ))}
-          </ul>
-        )}
+        <div className="errors-create-comment-form">
+          {validationErrors.length > 0 && (
+            <ul className="create-comment-errors">
+              {validationErrors.map((e) => (
+                <li key={e}>{e}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <form className="create-comment-form" onSubmit={handleSubmit}>
+          <label id="create-comment-title">Leave a Comment</label>
+
+          <textarea
+            id="create-comment-input"
+            type="text"
+            name="comment"
+            value={comment}
+            placeholder="Example: This post is a BANGER!"
+            onChange={(e) => setComment(e.target.value)}
+          />
+
+          <button id="create-comment-submit" type="submit">
+            Create Comment
+          </button>
+        </form>
       </div>
-
-      <form className="create-comment-form" onSubmit={handleSubmit}>
-        <label id="create-comment-title">Leave a Comment</label>
-
-        <label id="create-comment-input-title">Comment</label>
-        <textarea
-          id="create-comment-input"
-          type="text"
-          name="comment"
-          value={comment}
-          placeholder="Example: This post is a BANGER!"
-          onChange={(e) => setComment(e.target.value)}
-        />
-
-        <button id="create-comment-submit" type="submit">
-          Create Comment
-        </button>
-      </form>
     </>
   );
 };

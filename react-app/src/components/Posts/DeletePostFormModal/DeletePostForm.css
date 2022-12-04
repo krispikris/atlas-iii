@@ -1,0 +1,50 @@
+.delete-post-button-in-modal {
+    width: 20px;
+    height: 20px;
+}
+
+.delete-post-button-in-modal:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7)
+}
+
+.delete-post-form {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    justify-content: center;
+    width: 650px;
+    height: 150px;
+    align-items: center;
+    /* border: red solid 10px; */
+    padding: 65px;
+}
+
+#delete-post-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    font-family: Sailec-Medium, "Helvetica Neue",
+        Arial,
+        sans-serif;
+    font-size: 28px;
+    color: rgb(128, 60, 0);
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+#delete-post-submit {
+    color: white;
+    background-color: rgb(128, 60, 0);
+    height: 45px;
+    width: 100%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-size: 17px;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+#delete-post-submit:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 1.2);
+}

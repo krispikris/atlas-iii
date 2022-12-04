@@ -22,69 +22,80 @@
     width: 100%;
     justify-content: center;
     padding: 7%;
+    border: red 5px solid;
 }
 
 .create-new-post-form {
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    /* width: 700px; */
+    justify-content: center;
+    width: 750px;
+    height: 700px;
+    /* align-items: center; */
+    /* border: red solid 10px; */
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-#become-a-host-form-title {
+#upload-post-form-title {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-family: Sailec-Medium, "Helvetica Neue",
+        Arial,
+        sans-serif;
     font-size: 28px;
-    color: rgb(118, 118, 118);
-}
-
-#welcome-back-to-atlas-host {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-    font-weight: bold;
-    font-size: 30px;
     color: rgb(128, 60, 0);
+    margin-top: -10px;
+    margin-bottom: 20px;
 }
 
-#host-input-title {
-    margin-left: 4px;
-    margin-bottom: 2px;
+#pi-title {
     font-size: 17px;
-    font-weight: bold;
+    font-family: Sailec-Bold, "Helvetica Neue", Arial, sans-serif;
+    color: #333333;
+    margin-bottom: 4px;
 }
 
-#host-form-inputs {
-    padding: 4px;
+#post-form-inputs {
     margin-bottom: 15px;
-    border-radius: 8px;
-    height: 35px;
+    border-radius: 7px;
+    /* height: 70%; */
+    width: 100%;
     font-size: 20px;
+    font-family: Sailec-Light, "Helvetica Neue", Arial, sans-serif;
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
+    padding-bottom: 10px;
 }
 
-#host-form-inputs:hover {
+#post-form-inputs:hover {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    background-color: rgb(212, 223, 215)
+    background-color: rgb(224, 224, 224)
 }
 
-.host-submit-button {
+.post-submit-button {
     color: white;
     background-color: rgb(128, 60, 0);
-    height: 60px;
+    height: 45px;
+    width: 100%;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     font-size: 17px;
     font-weight: bold;
+    margin-top: 10px;
+    /* margin-bottom: 50px; */
 }
 
-.host-submit-button:hover {
+.post-submit-button:hover {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 1.2);
 }
 
 .create-post-errors {
     font-family: Sailec-Light, "Helvetica Neue", Arial, sans-serif;
     margin-bottom: 20px;
+    font-size: 16px;
 }

@@ -7,12 +7,13 @@ const UpdateCommentFormModal = ({ commentToUpdate }) => {
 
   return (
     <>
-      <button
-        className="update-comment-button-in-modal"
+      <img
+        className="delete-comment-button-in-modal"
         onClick={() => setShowModal(true)}
-      >
-        Update Comment
-      </button>
+        id="post-img-2"
+        src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670170044/atlas/Icons/editing_pyrt35.png"
+        alt="post-left"
+      ></img>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <UpdateCommentForm

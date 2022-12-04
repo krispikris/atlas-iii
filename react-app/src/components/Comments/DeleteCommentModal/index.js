@@ -8,12 +8,14 @@ const DeleteCommentFormModal = ({ commentToUpdate }) => {
 
   return (
     <>
-      <button
+      <img
         className="delete-comment-button-in-modal"
         onClick={() => setShowModal(true)}
-      >
-        Delete Comment
-      </button>
+        id="post-img"
+        src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670170044/atlas/Icons/delete_l7uttv.png"
+        alt="post-left"
+      ></img>
+
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <DeleteCommentForm

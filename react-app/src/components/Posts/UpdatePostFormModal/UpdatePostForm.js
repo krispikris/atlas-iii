@@ -88,7 +88,7 @@ const UpdatePostForm = ({ setShowModal }) => {
         )}
       </div>
 
-      <label id="update-post-title">UPDATE YOUR POST</label>
+      <label id="update-post-title">Update Your Post</label>
 
       <label id="update-post-input-title">Photo URL</label>
       <input

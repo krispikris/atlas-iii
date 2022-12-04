@@ -119,45 +119,56 @@ const PostDetails = () => {
     isLoaded && (
       <>
         <div class="a-full-post-page-wrap">
-          <div class="a1-left-post-photo">
-            <img
-              id="post-img"
-              src={currentPostObj?.photo}
-              alt="post-left"
-              onError={(e) =>
-                (e.target.src =
-                  "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
-              }
-            ></img>
+          <div class="a1-left-container">
+            <div class="a1-left-post-photo">
+              <img
+                id="post-img"
+                src={currentPostObj?.photo}
+                alt="post-left"
+                onError={(e) =>
+                  (e.target.src =
+                    "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
+                }
+              ></img>
+            </div>
           </div>
 
           <div class="a2-right-details">
             <div class="a2a-username-location">
-              <p id="a2a-1">{currentPostObj?.User.username}</p>
-              <p id="a2a-2">{currentPostObj?.location}</p>
+              <img
+                id="username-image"
+                src={currentPostObj?.User?.profile_photo}
+              ></img>
+              <div id="a2a-us-lo">
+                <p id="a2a-1">{currentPostObj?.User.username}</p>
+                <p id="a2a-2">{currentPostObj?.location}</p>
+              </div>
               <div id="edit-post-buttons">{postButtons}</div>
             </div>
 
-            <div class="a2b-description-tips">
-              <p id="a2b-1-description">{currentPostObj?.description}</p>
-              <p id="a2b-2-tips">{currentPostObj?.tips}</p>
-            </div>
-
-            <div class="a2c-comments-container">
-              <div id="a2c-1-comments">
-                {currentPostCommentsArr.map((comment) => (
-                  <div
-                    key={comment?.id}
-                    className="individual-comment-container"
-                    id="a2c-2-individual-comments"
-                  >
-                    <div id="a2c-3-comment">
-                      {comment?.User?.username}: {comment?.comment}
-                    </div>
-                  </div>
-                ))}
+            <div class="a2b">
+              <div class="a2b-description-tips">
+                <p id="a2b-1-description">{currentPostObj?.description}</p>
+                <p id="a2b-2-tips">{currentPostObj?.tips}</p>
               </div>
-              <div class="a2d-5-update-comment-buttons">{commentButtons}</div>
+
+              <div class="a2c-comments-container">
+                <div id="a2c-1-comments">
+                  {/* <p id="comments-title">Comments</p> */}
+                  {currentPostCommentsArr.map((comment) => (
+                    <div
+                      key={comment?.id}
+                      className="individual-comment-container"
+                      id="a2c-2-individual-comments"
+                    >
+                      <div id="a2c-3-comment">
+                        {comment?.User?.username}: {comment?.comment}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div class="a2d-5-update-comment-buttons">{commentButtons}</div>
+              </div>
             </div>
           </div>
         </div>

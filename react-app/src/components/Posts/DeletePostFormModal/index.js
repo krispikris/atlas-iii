@@ -8,12 +8,13 @@ const DeletePostFormModal = ({ postToUpdate }) => {
 
   return (
     <>
-      <button
+      <img
         className="delete-post-button-in-modal"
         onClick={() => setShowModal(true)}
-      >
-        Delete Post
-      </button>
+        id="post-img-3"
+        src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670170044/atlas/Icons/delete_l7uttv.png"
+        alt="post-left-3"
+      ></img>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <DeletePostForm
