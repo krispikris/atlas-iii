@@ -60,39 +60,37 @@ const Navigation = ({ isLoaded, sessionUser }) => {
   return (
     <>
       {!sessionUser && (
-        <header>
-          <div class="splash-page-container">
-            <div class="a-navbar-nli">
-              <div id="a1-logo-orange-nli">
-                <NavLink id="a1a-logo" exact to="/">
-                  <img
-                    id="a1a-logo-nli"
-                    src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670025206/atlas/Logos/atlas-white_axgxek.png"
-                  ></img>
-                </NavLink>
-              </div>
-
-              <div id="a2-login-and-signup">{isLoaded && sessionLinks}</div>
+        <div class="splash-page-container">
+          <div class="a-navbar-nli">
+            <div id="a1-logo-orange-nli">
+              <NavLink id="a1a-logo" exact to="/">
+                <img
+                  id="a1a-logo-nli"
+                  src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670025206/atlas/Logos/atlas-white_axgxek.png"
+                ></img>
+              </NavLink>
             </div>
 
-            <div class="b-splash-photo">
-              <img
-                id="b1-splash-nli-northern-lights"
-                src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670160054/atlas/Post%20-%20Photos/posts-extra/1-cropped_e6rzye.jpg"
-              ></img>
-            </div>
-
-            <div class="b-splash-photo-text">
-              <h1 id="b1-a-splah-nli-title-1">
-                Explore, plan, and visualize your next photography adventure.
-              </h1>
-              <h3 id="b1-a-splah-nli-title-2">
-                Discover a world of individual photography travel experiences
-                curated by photograhers like you.
-              </h3>
-            </div>
+            <div id="a2-login-and-signup">{isLoaded && sessionLinks}</div>
           </div>
-        </header>
+
+          <div class="b-splash-photo">
+            <img
+              id="b1-splash-nli-northern-lights"
+              src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670160054/atlas/Post%20-%20Photos/posts-extra/1-cropped_e6rzye.jpg"
+            ></img>
+          </div>
+
+          <div class="b-splash-photo-text">
+            <h1 id="b1-a-splah-nli-title-1">
+              Explore, plan, and visualize your next photography adventure.
+            </h1>
+            <h3 id="b1-a-splah-nli-title-2">
+              Discover a world of individual photography travel experiences
+              curated by photograhers like you.
+            </h3>
+          </div>
+        </div>
       )}
 
       {sessionUser && (
