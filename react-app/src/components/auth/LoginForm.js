@@ -1,10 +1,10 @@
-// react-app/src/components/LoginFormModal/LoginForm.js
+// react-app/src/components/Auth/LoginForm.js
 
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { login } from "../../store/session";
-import "./LoginForm.css";
+import "../LoginFormModal/LoginFormModal.css";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ const LoginForm = () => {
 
   return (
     <div className="login-modal">
-      <form id="login-form" onSubmit={handleSubmit}>
+      <form class="login-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, ind) => (
             <li key={ind}>{error}</li>
@@ -61,9 +61,9 @@ const LoginForm = () => {
             </ul>
           )}
         </div>
-        <label id="login-form-title">LOGIN FORM</label>
+
         <label id="welcome-back-to-atlas-login">Welcome back to atlas.</label>
-        <div>
+        <div class="login-form-input-container">
           <label id="login-input-title" htmlFor="email">
             Email
           </label>

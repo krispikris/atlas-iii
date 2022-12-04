@@ -1,28 +1,45 @@
+#login-modal {
+    width: 1000px;
+    height: 5000px;
+    background-color: aqua;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    padding: 10%;
+    align-items: center;
+    border: red solid 10px
+}
+
+/* #login-form-input-container {
+    display: flex;
+    flex-direction: row;
+    border: red solid 10px
+} */
+
+
 #login-button-in-modal {
     color: white;
-    background-color: rgb(128, 60, 0);
-    border-radius: 15px;
-    width: 95px;
-    height: 40px;
-    /* margin-left: 20px; */
+    border-radius: 7px;
+    width: 75px;
+    height: 35px;
+    /* margin-right: 20px; */
 }
 
 #login-button-in-modal:hover {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7)
 }
 
-#login-form {
-    display: flex;
-    flex-direction: column;
-    width: 700px;
-}
 
 #login-form-inputs {
     padding: 4px;
-    margin-bottom: 15px;
-    border-radius: 8px;
+    margin-bottom: 35px;
+    border-radius: 5px;
     height: 35px;
     font-size: 20px;
+    width: 100%;
 }
 
 #login-form-inputs:hover {
@@ -33,7 +50,8 @@
 .login-submit-button {
     color: white;
     background-color: rgb(128, 60, 0);
-    height: 60px;
+    height: 45px;
+    width: 100%;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     font-size: 17px;
@@ -46,8 +64,9 @@
 
 .demo-login-submit-button {
     color: white;
-    background-color: rgb(90, 131, 103);
-    height: 60px;
+    background-color: rgb(128, 60, 0);
+    height: 45px;
+    width: 100%;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     font-size: 17px;
@@ -73,7 +92,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     font-weight: bold;
     font-size: 30px;
     color: rgb(128, 60, 0);

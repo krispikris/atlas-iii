@@ -47,7 +47,7 @@ const LoginForm = () => {
 
   return (
     <div className="login-modal">
-      <form id="login-form" onSubmit={handleSubmit}>
+      <form class="login-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, ind) => (
             <li key={ind}>{error}</li>
@@ -63,9 +63,9 @@ const LoginForm = () => {
             </ul>
           )}
         </div>
-        <label id="login-form-title">LOGIN FORM</label>
+
         <label id="welcome-back-to-atlas-login">Welcome back to atlas.</label>
-        <div>
+        <div class="login-form-input-container">
           <label id="login-input-title" htmlFor="email">
             Email
           </label>

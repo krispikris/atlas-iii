@@ -46,12 +46,12 @@ const Navigation = ({ isLoaded, sessionUser }) => {
   } else {
     sessionLinks = (
       <>
-        <div className="session-buttons-nli">
-          <div id="signup-button"></div>
-          <SignupFormModal />
+        <div className="navbar-buttons-nli">
           <div id="login-button">
             <LoginFormModal />
           </div>
+          <div id="signup-button"></div>
+          <SignupFormModal />
         </div>
       </>
     );
@@ -59,18 +59,56 @@ const Navigation = ({ isLoaded, sessionUser }) => {
 
   return (
     <>
-      <div class="a-navbar">
-        <div id="a1-logo-orange">
-          <NavLink id="a1a-logo" exact to="/discover">
-            <img
-              id="a1a-logo"
-              src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670025206/atlas/Logos/atlas-burnt_mlh2yx.png"
-            ></img>
-          </NavLink>
-        </div>
+      {!sessionUser && (
+        <header>
+          <div class="splash-page-container">
+            <div class="a-navbar-nli">
+              <div id="a1-logo-orange-nli">
+                <NavLink id="a1a-logo" exact to="/">
+                  <img
+                    id="a1a-logo-nli"
+                    src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670025206/atlas/Logos/atlas-white_axgxek.png"
+                  ></img>
+                </NavLink>
+              </div>
 
-        <div id="a2-upload-and-profile">{isLoaded && sessionLinks}</div>
-      </div>
+              <div id="a2-login-and-signup">{isLoaded && sessionLinks}</div>
+            </div>
+
+            <div class="b-splash-photo">
+              <img
+                id="b1-splash-nli-northern-lights"
+                src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670160054/atlas/Post%20-%20Photos/posts-extra/1-cropped_e6rzye.jpg"
+              ></img>
+            </div>
+
+            <div class="b-splash-photo-text">
+              <h1 id="b1-a-splah-nli-title-1">
+                Explore, plan, and visualize your next photography adventure.
+              </h1>
+              <h3 id="b1-a-splah-nli-title-2">
+                Discover a world of individual photography travel experiences
+                curated by photograhers like you.
+              </h3>
+            </div>
+          </div>
+        </header>
+      )}
+
+      {sessionUser && (
+        <div class="a-navbar-li">
+          <div id="a1-logo-orange">
+            <NavLink id="a1a-logo" exact to="/discover">
+              <img
+                id="a1a-logo-li"
+                src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670025206/atlas/Logos/atlas-burnt_mlh2yx.png"
+              ></img>
+            </NavLink>
+          </div>
+
+          <div id="a2-upload-and-profile">{isLoaded && sessionLinks}</div>
+        </div>
+      )}
     </>
   );
 };

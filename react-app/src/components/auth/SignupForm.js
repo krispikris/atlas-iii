@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
-import "./SignupForm.css";
+import "../SignupFormModal/SignupFormModal.css";
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -140,7 +140,6 @@ const SignUpForm = () => {
         )}
       </div>
 
-      <label id="signup-form-title">SIGN UP FORM</label>
       <label id="welcome-to-atlas-signup">Welcome to atlas.</label>
 
       <div>

@@ -132,7 +132,7 @@ const SignUpForm = () => {
     <form className="signup-form" onSubmit={handleSubmit}>
       <div className="errors-signup-form">
         {validationErrors.length > 0 && (
-          <ul className="signup-input-errors">
+          <ul className="signup-errors">
             {validationErrors.map((e) => (
               <li key={e}>{e}</li>
             ))}
@@ -140,101 +140,101 @@ const SignUpForm = () => {
         )}
       </div>
 
-      <label id="signup-form-title">SIGN UP FORM</label>
       <label id="welcome-to-atlas-signup">Welcome to atlas.</label>
+      <div class="signup-form-input-container">
+        <div>
+          <label id="signup-input-title">User Name</label>
+          <input
+            id="signup-form-inputs"
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          ></input>
+        </div>
 
-      <div>
-        <label id="signup-input-title">User Name</label>
-        <input
-          id="signup-form-inputs"
-          type="text"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        ></input>
+        <div>
+          <label id="signup-input-title">First Name</label>
+          <input
+            id="signup-form-inputs"
+            type="text"
+            name="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          ></input>
+        </div>
+
+        <div>
+          <label id="signup-input-title">Last Name</label>
+          <input
+            id="signup-form-inputs"
+            type="text"
+            name="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          ></input>
+        </div>
+
+        <div>
+          <label id="signup-input-title">Email</label>
+          <input
+            id="signup-form-inputs"
+            type="text"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></input>
+        </div>
+
+        <div>
+          <label id="signup-input-title">Bio</label>
+          <input
+            id="signup-form-inputs"
+            type="text"
+            name="email"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+          ></input>
+        </div>
+
+        <div>
+          <label id="signup-input-title">Profile Photo URL</label>
+          <input
+            id="signup-form-inputs"
+            type="text"
+            name="profilePhoto"
+            value={profilePhoto}
+            onChange={(e) => setProfilePhoto(e.target.value)}
+          ></input>
+        </div>
+
+        <div>
+          <label id="signup-input-title">Password</label>
+          <input
+            id="signup-form-inputs"
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+        </div>
+
+        <div>
+          <label id="signup-input-title">Repeat Password</label>
+          <input
+            id="signup-form-inputs"
+            type="password"
+            name="repeat_password"
+            value={repeatPassword}
+            onChange={(e) => setRepeatPassword(e.target.value)}
+            required={true}
+          ></input>
+        </div>
+
+        <button className="signup-submit-button" type="submit">
+          Sign Up
+        </button>
       </div>
-
-      <div>
-        <label id="signup-input-title">First Name</label>
-        <input
-          id="signup-form-inputs"
-          type="text"
-          name="firstName"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        ></input>
-      </div>
-
-      <div>
-        <label id="signup-input-title">Last Name</label>
-        <input
-          id="signup-form-inputs"
-          type="text"
-          name="lastName"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        ></input>
-      </div>
-
-      <div>
-        <label id="signup-input-title">Email</label>
-        <input
-          id="signup-form-inputs"
-          type="text"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-      </div>
-
-      <div>
-        <label id="signup-input-title">Bio</label>
-        <input
-          id="signup-form-inputs"
-          type="text"
-          name="email"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-        ></input>
-      </div>
-
-      <div>
-        <label id="signup-input-title">Profile Photo URL</label>
-        <input
-          id="signup-form-inputs"
-          type="text"
-          name="profilePhoto"
-          value={profilePhoto}
-          onChange={(e) => setProfilePhoto(e.target.value)}
-        ></input>
-      </div>
-
-      <div>
-        <label id="signup-input-title">Password</label>
-        <input
-          id="signup-form-inputs"
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-      </div>
-
-      <div>
-        <label id="signup-input-title">Repeat Password</label>
-        <input
-          id="signup-form-inputs"
-          type="password"
-          name="repeat_password"
-          value={repeatPassword}
-          onChange={(e) => setRepeatPassword(e.target.value)}
-          required={true}
-        ></input>
-      </div>
-
-      <button className="signup-submit-button" type="submit">
-        Sign Up
-      </button>
     </form>
   );
 };
