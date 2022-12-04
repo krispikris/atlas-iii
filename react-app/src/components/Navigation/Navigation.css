@@ -1,32 +1,21 @@
-.atlas-logo {
-    width: 100px;
-    height: 100px;
-    /* color:rgb(128, 60, 0) */
-}
-
-/* .navigation-wrap {
-    justify-content: center;
-    position: sticky;
-    width: 100%;
-    height: 54px;
-    position: fixed;
-    background-color: white;
-    margin-bottom: 30px;
-    top: 0px;
-} */
-
-.navigation-bar {
+.navigation-bar-li {
     display: flex;
     justify-content: center;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 100px;
-    background-color: rgb(166, 166, 166);
     border-bottom: rgb(228, 228, 228) 3px solid;
+    /* background-color: rgb(166, 166, 166); */
     /* border-bottom: rgb(228, 228, 228) 3px solid; */
 }
 
+.atlas-logo-li {
+    width: 100px;
+    height: 100px;
+
+
+}
 .session-buttons {
     display: flex;
     margin-right: 160px;
@@ -82,9 +71,7 @@
     margin-left: 150px;
 }
 
-.atlas-text {
-    margin-left: 10px;
-}
+
 
 a {
     text-decoration: none;
@@ -98,23 +85,11 @@ a {
     visibility: hidden;
 }
 
-.navigation-buttons {
-    /* border: black 3px solid; */
+
+.splash-background {
     display: flex;
-    margin-right: 170px;
-    width: 300px;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-#hamburger-icon {
-    width: 20px;
-    height: 20px;
-}
-
-#profile-icon {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
 }
 
 .footer-bar-wrap {
@@ -181,3 +156,14 @@ a {
 .dropDownOnOff {
     color: red;
 }
+
+/* .navigation-wrap {
+    justify-content: center;
+    position: sticky;
+    width: 100%;
+    height: 54px;
+    position: fixed;
+    background-color: white;
+    margin-bottom: 30px;
+    top: 0px;
+} */

@@ -59,28 +59,66 @@ const Navigation = ({ isLoaded, sessionUser }) => {
 
   return (
     <>
-      <div className="navigation">
-        <div className="navigation-wrap">
+      {!sessionUser && (
+        <div className="splash-page">
           <div className="navigation-bar">
             <NavLink exact to="/discover">
               <div className="atlas">
                 <img
-                  className="atlas-logo"
-                  src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1669854216/atlas/Logos/atlas_wte6wc.svg"
+                  className="atlas-logo-white"
+                  src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670025206/atlas/Logos/atlas-white_axgxek.png"
                   alt="logo-1"
                 ></img>
-                <div className="atlas-text">atlas</div>
               </div>
             </NavLink>
+
+            <div class="splash-background">
+              <img
+                className="splash-northern-lights"
+                src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1669962618/atlas/Post%20-%20Photos/posts-extra/2-nl_atwul0.jpg"
+                alt="nl-1"
+              ></img>
+            </div>
+
+            <div class="splash-text">
+              <h1 id="st-1">
+                Explore, plan and visualize your next unforgettable photograhy
+                adventure
+              </h1>
+              <h3 id="st-1">
+                Discover a world of individual photography expereinces curated
+                for you by photography enthusiasts like you.
+              </h3>
+            </div>
 
             <div>{isLoaded && sessionLinks}</div>
           </div>
         </div>
-      </div>
+      )}
 
+      {sessionUser && (
+        <div className="navigation-li">
+          <div className="navigation-wrap-li">
+            <div className="navigation-bar-li">
+              <NavLink exact to="/discover">
+                <div className="atlas">
+                  <img
+                    className="atlas-logo-li"
+                    src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1669854216/atlas/Logos/atlas_wte6wc.svg"
+                    alt="logo-1"
+                  ></img>
+                  <div className="atlas-text">atlas</div>
+                </div>
+              </NavLink>
+
+              <div>{isLoaded && sessionLinks}</div>
+            </div>
+          </div>
+        </div>
+      )}
       {/* <div className="footer-bar-wrap">
         <div id="footer-left">
-          <div id="created-by-name">
+        <div id="created-by-name">
             2022 Created and Styled by Kristopher Han
           </div>
           <div id="social-icons">
