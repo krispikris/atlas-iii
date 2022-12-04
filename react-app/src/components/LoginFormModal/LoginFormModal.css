@@ -1,19 +1,19 @@
-.login-form {
+.login-container {
     display: flex;
     flex-direction: column;
-    width: 1000px;
-    padding: 10%;
+    width: 750px;
+    height: 60vh;
+    padding: 5%;
+    justify-content: center;
     align-items: center;
-    border: red solid 10px;
+    /* border: red solid 10px; */
 }
 
-/* #login-form-input-container {
-    display: flex;
-    flex-direction: row;
-    border: red solid 10px
-} */
-
-
+.login-form {
+    /* border: orange solid 2px; */
+    overflow-y: scroll;
+    width: 100%;
+}
 #login-button-in-modal {
     color: white;
     border-radius: 7px;
@@ -39,7 +39,7 @@
 
 #login-form-inputs:hover {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    background-color: rgb(212, 223, 215)
+    background-color: rgb(224, 224, 224)
 }
 
 .login-submit-button {

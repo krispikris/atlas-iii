@@ -21,8 +21,9 @@
     justify-content: space-between;
     padding-left: 10%;
     padding-right: 10%;
-    background-color: grey;
-    /* border: black solid 5px; */
+    background-color: rgb(221, 221, 221);
+    box-sizing: border-box;
+        /* border: black solid 5px; */
 }
 
 #a1a-logo-nli {
@@ -42,13 +43,15 @@
 }
 
 .b-splash-photo {
-    display: flex;
-    position: absolute;
-    align-content: center;
-    /* height: 1080px; */
+    width: 100%;
+}
+
+#b1-splash-nli-northern-lights {
     width: 100%;
     background-size: cover;
     background-position: center;
+    /* border: red solid 5px; */
+    /* position: absolute; */
 }
 
 .b-splash-photo-text {
@@ -65,11 +68,11 @@
     display: flex;
     align-items: center;
     height: 80px;
-    width: 1920px;
+    width: 100vw;
     justify-content: space-between;
-    /* border: black solid 5px; */
     padding-left: 10%;
     padding-right: 10%;
+    box-sizing: border-box;
     border-bottom: rgb(228, 228, 228) 3px solid;
 }
 

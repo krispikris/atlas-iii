@@ -46,7 +46,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="login-modal">
+    <div className="login-container">
       <form class="login-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, ind) => (
