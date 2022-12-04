@@ -8,7 +8,7 @@ import GetPosts from "./components/Posts/GetPosts";
 import PostDetails from "./components/Posts/PostDetails";
 import UsersList from "./components/Users/UsersList";
 // import LoginForm from "./components/Auth/LoginForm";
-import SignUpForm from "./components/Auth/SignupForm";
+// import SignUpForm from "./components/Auth/SignupForm";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -34,9 +34,9 @@ const App = () => {
           {/* <Route path="/login" exact={true}>
             <LoginForm />
           </Route> */}
-          <Route path="/signup" exact={true}>
+          {/* <Route path="/signup" exact={true}>
             <SignUpForm />
-          </Route>
+          </Route> */}
           <Route path="/users" exact={true}>
             <UsersList />
           </Route>
