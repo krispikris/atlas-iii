@@ -11,7 +11,7 @@ const UpdateCommentForm = ({ setShowModal, commentToUpdate }) => {
   const dispatch = useDispatch();
   // const currentUser = useSelector((state) => state.session.user);
   const commentId = commentToUpdate.id;
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [comment, setComment] = useState(commentToUpdate.comment);
   const [validationErrors, setValidationErrors] = useState([]);
 
@@ -34,6 +34,7 @@ const UpdateCommentForm = ({ setShowModal, commentToUpdate }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
 
     if (validationErrors.length > 0) return;
 
@@ -50,7 +51,7 @@ const UpdateCommentForm = ({ setShowModal, commentToUpdate }) => {
   return (
     <form className="update-comment-form" onSubmit={handleSubmit}>
       <div className="errors-create-comment-form">
-        {validationErrors.length > 0 && (
+        {isSubmitted && (
           <ul className="update-comment-errors">
             {validationErrors.map((e) => (
               <li key={e}>{e}</li>

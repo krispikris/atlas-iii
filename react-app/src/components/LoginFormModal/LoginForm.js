@@ -14,6 +14,7 @@ const LoginForm = () => {
   // const user = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState([]);
   const [validationErrors, setValidationErrors] = useState([]);
 
@@ -22,7 +23,7 @@ const LoginForm = () => {
 
     if (!email || email.length < 3 || email > 40)
       errors.push(
-        "Please enter valid credentials. Credentials/Email must be more than 3 and less than 40 characters."
+        "Please enter valid email. Email must be more than 3 and less than 40 characters."
       );
     if (!password || password.length < 3 || password > 30)
       errors.push("Please enter valid password.");
@@ -32,6 +33,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
 
     if (validationErrors.length > 0) return;
 
@@ -55,7 +57,7 @@ const LoginForm = () => {
         </ul>
 
         <div className="errors-login-form">
-          {validationErrors.length > 0 && (
+          {isSubmitted && (
             <ul className="login-errors">
               {validationErrors.map((e) => (
                 <li key={e}>{e}</li>

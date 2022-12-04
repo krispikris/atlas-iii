@@ -18,17 +18,17 @@ const DeleteCommentForm = ({ setShowModal, commentToUpdate }) => {
 
   return (
     <>
-      <form className="delete-comment-form" onSubmit={deleteComment}>
-        <label id="delete-comment-title">Delete Your Comment</label>
-        {/* <label id="how-was-your-stay">How was your Experience?</label> */}
-
-        <h3 id="delete-confirmation">
-          Are you sure you want to delete your comment?
-        </h3>
-        <button id="delete-comment-submit" type="submit">
-          Delete Your Comment
-        </button>
-      </form>
+      <div class="delete-comment-form-container">
+        <form className="delete-comment-form" onSubmit={deleteComment}>
+          <label id="delete-comment-title">Delete Your Comment</label>
+          <h3 id="delete-confirmation">
+            Are you sure you want to delete your comment?
+          </h3>
+          <button id="delete-comment-submit" type="submit">
+            Delete Your Comment
+          </button>
+        </form>
+      </div>
     </>
   );
 };

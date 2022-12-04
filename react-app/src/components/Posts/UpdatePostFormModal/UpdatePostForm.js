@@ -18,6 +18,7 @@ const UpdatePostForm = ({ setShowModal }) => {
   const [tips, setTips] = useState(post.tips);
   // const [imageURL, setimageURL]           = useState(spot.imageURL);
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [validationErrors, setValidationErrors] = useState([]);
 
   useEffect(() => {
@@ -61,7 +62,7 @@ const UpdatePostForm = ({ setShowModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setIsSubmitted(true);
     if (validationErrors.length > 0) return;
 
     let updatedPostFormInputs = {
@@ -79,7 +80,7 @@ const UpdatePostForm = ({ setShowModal }) => {
   return (
     <form className="update-post-form" onSubmit={handleSubmit}>
       <div className="errors-update-post-form">
-        {validationErrors.length > 0 && (
+        {isSubmitted && (
           <ul className="update-post-errors">
             {validationErrors.map((e) => (
               <li key={e}>{e}</li>

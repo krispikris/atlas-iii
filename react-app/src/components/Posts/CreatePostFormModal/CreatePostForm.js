@@ -13,6 +13,7 @@ const CreatePostForm = ({ setShowModal }) => {
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const [tips, setTips] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [validationErrors, setValidationErrors] = useState([]);
 
   useEffect(() => {
@@ -56,6 +57,7 @@ const CreatePostForm = ({ setShowModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
 
     if (validationErrors.length > 0) return;
     const postFormInputs = {
@@ -79,7 +81,7 @@ const CreatePostForm = ({ setShowModal }) => {
     <div class="create-post-form-modal-container">
       <form className="create-new-post-form" onSubmit={handleSubmit}>
         <div className="errors-create-post-form">
-          {validationErrors.length > 0 && (
+          {isSubmitted && (
             <ul className="create-post-errors">
               {validationErrors.map((e) => (
                 <li key={e}>{e}</li>

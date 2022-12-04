@@ -7,13 +7,12 @@
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7)
 }
 
-.delete-comment-form {
+.delete-comment-form-container {
     display: flex;
     flex-direction: column;
-    width: 700px;
     justify-content: center;
-    width: 650px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     align-items: center;
     /* border: red solid 10px; */
     padding: 65px;

@@ -13,7 +13,7 @@ const CreateCommentForm = ({ setShowModal }) => {
   console.log("This is the current user as an OBJECT: ", currentUser);
 
   const [comment, setComment] = useState("");
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState([]);
   const [validationErrors, setValidationErrors] = useState([]);
 
@@ -31,7 +31,7 @@ const CreateCommentForm = ({ setShowModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setIsSubmitted(true);
     if (validationErrors.length > 0) return;
 
     let commentInput = { comment };
@@ -55,7 +55,7 @@ const CreateCommentForm = ({ setShowModal }) => {
         })}
 
         <div className="errors-create-comment-form">
-          {validationErrors.length > 0 && (
+          {isSubmitted && (
             <ul className="create-comment-errors">
               {validationErrors.map((e) => (
                 <li key={e}>{e}</li>

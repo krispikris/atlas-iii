@@ -10,12 +10,10 @@
 .delete-post-form {
     display: flex;
     flex-direction: column;
-    width: 700px;
+    width: 100%;
     justify-content: center;
-    width: 650px;
-    height: 150px;
+    height: 100%;
     align-items: center;
-    /* border: red solid 10px; */
     padding: 65px;
 }
 

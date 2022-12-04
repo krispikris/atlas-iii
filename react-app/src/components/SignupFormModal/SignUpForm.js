@@ -16,6 +16,7 @@ const SignUpForm = () => {
   const [profilePhoto, setProfilePhoto] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState([]);
   const [validationErrors, setValidationErrors] = useState([]);
 
@@ -82,6 +83,7 @@ const SignUpForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
 
     if (validationErrors.length > 0) return;
 
@@ -132,7 +134,7 @@ const SignUpForm = () => {
     <div class="signup-container">
       <form className="signup-form" onSubmit={handleSubmit}>
         <div className="errors-signup-form">
-          {validationErrors.length > 0 && (
+          {isSubmitted && (
             <ul className="signup-errors">
               {validationErrors.map((e) => (
                 <li key={e}>{e}</li>
