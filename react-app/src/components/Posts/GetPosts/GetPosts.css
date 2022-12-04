@@ -1,8 +1,20 @@
 .all-posts-wrap {
-    display: flex;
+    /* display: flex; */
     /* justify-content: center; */
     width: 100%;
     height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#all-posts-title-community {
+    display: flex;
+    flex-direction: column;
+    font-family: Sailec-Medium, "Helvetica Neue", Arial, sans-serif;
+    color: #333333;
+    font-size: 36px;
+    margin-left: 5%;
+    margin-top: 35px;
 }
 
 .all-posts-homepage-container {
@@ -18,7 +30,7 @@
     margin: auto;
     row-gap: 25px;
     column-gap: 25px;
-    margin-top: 150px;
+    margin-top: 25px;
     margin-bottom: 70px;
     /* box-sizing: border-box; */
 }
@@ -32,8 +44,8 @@
 
 .post-card {
     border-radius: 2%;
-    width: 400px;
-    height: 400px;
+    width: 373px;
+    height: 223.797px;
     display: flex;
     flex-direction: row;
     font-size: 10px;

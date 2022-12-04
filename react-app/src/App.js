@@ -48,7 +48,6 @@ const App = () => {
             <h1>My Home Page</h1>
           </Route>
           <Route path="/discover" exact={true}>
-            <h1>Discovery Page</h1>
             <GetPosts />
           </Route>
           <Route path="/posts" exact={true}>

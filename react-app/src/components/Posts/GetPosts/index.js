@@ -24,6 +24,7 @@ const GetPosts = () => {
     isLoaded && (
       <>
         <div className="all-posts-wrap">
+          <div id="all-posts-title-community">Community</div>
           <div className="all-posts-homepage-container">
             {allPosts.map((post) => (
               <div key={post.id} className="individual-post-container">
