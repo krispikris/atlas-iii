@@ -42,7 +42,7 @@ def upgrade():
                     )
 
     if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
 
     op.create_table('posts',
                     sa.Column('id', sa.Integer(), nullable=False),
@@ -63,7 +63,7 @@ def upgrade():
                     )
 
     if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
+        op.execute(f"ALTER TABLE posts SET SCHEMA {SCHEMA};")
 
     op.create_table('comments',
                     sa.Column('id', sa.Integer(), nullable=False),
@@ -80,7 +80,7 @@ def upgrade():
                     )
 
     if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
+        op.execute(f"ALTER TABLE comments SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
