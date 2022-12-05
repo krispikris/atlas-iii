@@ -21,9 +21,14 @@
     justify-content: space-between;
     padding-left: 10%;
     padding-right: 10%;
-    background-color: rgb(221, 221, 221);
+    padding-top: 35px;
+    /* background-color: rgb(221, 221, 221); */
     box-sizing: border-box;
-        /* border: black solid 5px; */
+    /* border: red solid 5px; */
+    position: absolute;
+    top: 0;
+    position: sticky;
+    margin-bottom: -80px;
 }
 
 #a1a-logo-nli {
@@ -61,7 +66,12 @@
     transform: translate(-50%, -50%);
     color: white;
     font-size: larger;
+    text-shadow: 1px 1px 1px #c9c9c9;
 }
+
+/* #b1-a-splah-nli-title-2 {
+    color: rgb(134, 187, 177)
+} */
 
 /* LOGGED IN: DISCOVER */
 .a-navbar-li {
@@ -92,7 +102,7 @@
     /* border: black 5px solid; */
 }
 
-/* .footer-bar-wrap {
+.footer-bar-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,7 +150,7 @@
 
 #created-by-name:hover {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
-    background-color: #1a692177;
+    background-color: #acacac77;
 }
 
 #github-icon:hover {
@@ -152,7 +162,3 @@
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
     background-color: #1a692177;
 }
-
-.dropDownOnOff {
-    color: red;
-} */

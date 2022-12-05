@@ -46,8 +46,7 @@
 
 .signup-submit-button {
     color: white;
-    background-color: rgb(128, 60, 0);
-    height: 45px;
+background-color: rgb(0, 142, 116);    height: 45px;
     width: 100%;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -66,8 +65,8 @@
     justify-content: center;
     margin-bottom: 15px;
     font-weight: bold;
-    font-size: 24px;
-    color: rgb(128, 60, 0);
+    font-size: 36px;
+    color: rgb(0, 142, 116);
     font-family: Sailec-Medium, "Helvetica Neue", Arial, sans-serif;
 }
 
