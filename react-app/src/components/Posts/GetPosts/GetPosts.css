@@ -8,14 +8,15 @@
 }
 
 #all-posts-title-community {
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
     font-family: Sailec-Medium, "Helvetica Neue", Arial, sans-serif;
     color: #333333cb;
     font-size: 36px;
-    margin-left: 125px;
-    width: 30%;
+    /* margin-left: 75px; */
+    width: 100%;
     margin-top: 25px;
+    padding-left: 5%;
     /* border: black solid 2px; */
 }
 

@@ -140,7 +140,7 @@ def seed_posts():
 
     post16 = Post(
         user_id=6,
-        photo='https://res.cloudinary.com/duvgdb8rd/image/upload/v1669545898/atlas/Post%20-%20Photos/06-chi_xxqumk.jpg',
+        photo='https://res.cloudinary.com/duvgdb8rd/image/upload/v1670232763/atlas/Post%20-%20Photos/posts-extra/01.15.20_Macau_Day_Exploring-19_zlf2de.jpg',
         title='X marks the spot',
         location='Chicago, IL',
         description='Look up.',

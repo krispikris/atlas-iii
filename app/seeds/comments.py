@@ -69,7 +69,7 @@ def seed_comments():
 
     comment12 = Comment(
         user_id=2,
-        post_id=9,
+        post_id=13,
         comment='You should get sponsored by Vans. Sweet.'
     )
 
@@ -81,7 +81,7 @@ def seed_comments():
 
     comment14 = Comment(
         user_id=4,
-        post_id=7,
+        post_id=1,
         comment='What a view from above.'
     )
 
@@ -93,7 +93,7 @@ def seed_comments():
 
     comment16 = Comment(
         user_id=3,
-        post_id=5,
+        post_id=1,
         comment='How did you get in there?!'
     )
 
@@ -105,19 +105,19 @@ def seed_comments():
 
     comment18 = Comment(
         user_id=8,
-        post_id=3,
+        post_id=17,
         comment='Great shot!'
     )
 
     comment19 = Comment(
         user_id=9,
-        post_id=8,
+        post_id=22,
         comment=':D'
     )
 
     comment20 = Comment(
         user_id=10,
-        post_id=1,
+        post_id=16,
         comment='The contrast of colors is nice!'
     )
     comment21 = Comment(
@@ -128,13 +128,13 @@ def seed_comments():
 
     comment22 = Comment(
         user_id=2,
-        post_id=9,
+        post_id=4,
         comment='You should get sponsored by Vans. Sweet.'
     )
 
     comment23 = Comment(
         user_id=3,
-        post_id=8,
+        post_id=24,
         comment='I need to go!'
     )
 
@@ -146,7 +146,7 @@ def seed_comments():
 
     comment25 = Comment(
         user_id=5,
-        post_id=26,
+        post_id=14,
         comment="Great shot!"
     )
 
@@ -158,7 +158,7 @@ def seed_comments():
 
     comment27 = Comment(
         user_id=7,
-        post_id=4,
+        post_id=9,
         comment='One of my favorite spots in the city of Angels!'
     )
 
@@ -176,18 +176,18 @@ def seed_comments():
 
     comment30 = Comment(
         user_id=10,
-        post_id=13,
+        post_id=6,
         comment='Was it hard to get there?'
     )
     comment31 = Comment(
         user_id=1,
-        post_id=10,
+        post_id=7,
         comment='Looks fun'
     )
 
     comment32 = Comment(
         user_id=2,
-        post_id=19,
+        post_id=23,
         comment='You should get sponsored by Vans. Sweet.'
     )
 
@@ -199,13 +199,13 @@ def seed_comments():
 
     comment34 = Comment(
         user_id=4,
-        post_id=7,
+        post_id=1,
         comment='Looks fun'
     )
 
     comment35 = Comment(
         user_id=5,
-        post_id=6,
+        post_id=12,
         comment="Was it hard to get there?"
     )
 
@@ -217,7 +217,7 @@ def seed_comments():
 
     comment37 = Comment(
         user_id=7,
-        post_id=24,
+        post_id=14,
         comment='Was it cold?'
     )
 
@@ -246,25 +246,25 @@ def seed_comments():
 
     comment42 = Comment(
         user_id=2,
-        post_id=19,
-        comment='You should get sponsored by Vans. Sweet.'
+        post_id=14,
+        comment='RIP to the Notorious.'
     )
 
     comment43 = Comment(
         user_id=3,
-        post_id=18,
+        post_id=14,
         comment='crazy view'
     )
 
     comment44 = Comment(
         user_id=4,
-        post_id=17,
+        post_id=27,
         comment='What a view from above.'
     )
 
     comment45 = Comment(
         user_id=5,
-        post_id=16,
+        post_id=14,
         comment="Wowwww"
     )
 
@@ -282,13 +282,13 @@ def seed_comments():
 
     comment48 = Comment(
         user_id=8,
-        post_id=13,
+        post_id=24,
         comment='Wowwww'
     )
 
     comment49 = Comment(
         user_id=9,
-        post_id=12,
+        post_id=24,
         comment='Cool percpective.'
     )
 
