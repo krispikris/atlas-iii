@@ -41,7 +41,7 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
 
     if (data) {
-      setValidationErrors(data);
+      setValidationErrors(["Email or Password is incorrect."]);
     } else {
       return history.push("/discover");
     }
@@ -50,7 +50,7 @@ const LoginForm = () => {
   return (
     <div className="login-container">
       <form class="login-form" onSubmit={handleSubmit}>
-        <ul>
+        <ul className="errors-login-form">
           {errors.map((error, ind) => (
             <li key={ind}>{error}</li>
           ))}
@@ -70,6 +70,7 @@ const LoginForm = () => {
         <div class="login-form-input-container">
           <label id="login-input-title" htmlFor="email">
             Email
+            <p id="required"> *</p>
           </label>
           <input
             id="login-form-inputs"
@@ -82,6 +83,7 @@ const LoginForm = () => {
 
           <label id="login-input-title" htmlFor="password">
             Password
+            <p id="required"> *</p>
           </label>
           <input
             id="login-form-inputs"

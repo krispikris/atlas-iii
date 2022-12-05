@@ -52,7 +52,7 @@ function ProfileButton({ user }) {
       {showMenu && (
         <div className="a2b-profile-dropdown-menu">
           <a id="a2b-1-pd-1" href="/posts/current">
-            My Profile
+            My Posts
           </a>
           <hr></hr>
           <div id="a2b-1-pd-2" onClick={logout}>

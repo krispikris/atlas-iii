@@ -60,7 +60,9 @@ const UpdateCommentForm = ({ setShowModal, commentToUpdate }) => {
         )}
       </div>
 
-      <label id="update-comment-title">Update Comment</label>
+      <label id="update-comment-title">
+        Update Comment<p id="required"> *</p>
+      </label>
 
       <textarea
         id="update-comment-input"

@@ -40,6 +40,7 @@
 
 #update-post-input-title {
     margin-bottom: -15px;
+    display: flex;
 }
 
 #update-post-input {

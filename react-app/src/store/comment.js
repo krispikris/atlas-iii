@@ -50,7 +50,7 @@ export const getCommentsThunk = (postId) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log(`GET COMMENTS THUNK DATA: `, data);
+    // console.log(`GET COMMENTS THUNK DATA: `, data);
     dispatch(getCommentsAction(data));
     return data;
   }
@@ -104,12 +104,12 @@ const commentsReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case GET_COMMENTS:
-      console.log(`GET_COMMENTS REDUCER: ++++++++++++++++++++`, action);
-      newState = { ...state };
+      // console.log(`GET_COMMENTS REDUCER: ++++++++++++++++++++`, action);
+      // newState = { ...state };
       action.payload.Comments.forEach((comment) => {
         newState[comment.id] = comment;
-        console.log(`THIS IS COMMENT: `, comment);
-        console.log(`THIS IS COMMENT COMMENT: `, comment.comment);
+        // console.log(`THIS IS COMMENT: `, comment);
+        // console.log(`THIS IS COMMENT COMMENT: `, comment.comment);
       });
       console.log(`THIS IS THE NEWSTATE: `, newState);
 

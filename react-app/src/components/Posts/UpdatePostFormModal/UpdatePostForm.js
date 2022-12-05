@@ -91,7 +91,9 @@ const UpdatePostForm = ({ setShowModal }) => {
 
       <label id="update-post-title">Update Your Post</label>
 
-      <label id="update-post-input-title">Photo URL</label>
+      <label id="update-post-input-title">
+        Photo URL<p id="required"> *</p>
+      </label>
       <input
         id="update-post-input"
         type="text"
@@ -100,7 +102,9 @@ const UpdatePostForm = ({ setShowModal }) => {
         onChange={(e) => setPhoto(e.target.value)}
       />
 
-      <label id="update-post-input-title">Title</label>
+      <label id="update-post-input-title">
+        Title<p id="required"> *</p>
+      </label>
       <input
         id="update-post-input"
         type="text"
@@ -109,7 +113,9 @@ const UpdatePostForm = ({ setShowModal }) => {
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <label id="update-post-input-title">Location</label>
+      <label id="update-post-input-title">
+        Location<p id="required"> *</p>
+      </label>
       <input
         id="update-post-input"
         type="text"

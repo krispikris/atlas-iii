@@ -92,7 +92,9 @@ const CreatePostForm = ({ setShowModal }) => {
 
         <label id="upload-post-form-title">Share a Place</label>
 
-        <label id="post-input-title">Photo URL</label>
+        <label id="post-input-title">
+          Photo URL<p id="required"> *</p>
+        </label>
         <input
           id="post-form-inputs"
           type="text"
@@ -110,7 +112,9 @@ const CreatePostForm = ({ setShowModal }) => {
               onChange={(e) => setimageURL(e.target.value)}
             /> */}
 
-        <label id="post-input-title">Title</label>
+        <label id="post-input-title">
+          Title<p id="required"> *</p>
+        </label>
         <input
           id="post-form-inputs"
           type="text"
@@ -119,7 +123,9 @@ const CreatePostForm = ({ setShowModal }) => {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label id="pi-title">Please tell us the exact loaction</label>
+        <label className="pi-title">
+          Please tell us the exact loaction<p id="required"> *</p>
+        </label>
         <label id="post-input-title">
           Be as precise as possible so other travelers can find your exerience.
         </label>
@@ -131,7 +137,7 @@ const CreatePostForm = ({ setShowModal }) => {
           onChange={(e) => setLocation(e.target.value)}
         />
 
-        <label id="pi-title">Tell us your story (optional)</label>
+        <label className="pi-title">Tell us your story</label>
         <label id="post-input-title">
           Help to inspire other travelers on atlas, write your description as
           detailed as possible.
@@ -144,7 +150,7 @@ const CreatePostForm = ({ setShowModal }) => {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <label id="pi-title">Tips of how to get the perfect photo</label>
+        <label className="pi-title">Tips of how to get the perfect photo</label>
         <label id="post-input-title">
           Please share camera settings and useful tips to get to this specific
           location.

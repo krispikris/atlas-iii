@@ -81,8 +81,8 @@ const PostDetails = () => {
     dispatch(getPostThunk(postId))
       .then(() => dispatch(getCommentsThunk(postId)))
       .then(() => setIsLoaded(true));
-    let extra = dispatch(getCommentsThunk(postId));
-    console.log(`THIS IS EXTRA VARIABLE +++++++: `, extra);
+    // let extra = dispatch(getCommentsThunk(postId));
+    // console.log(`THIS IS EXTRA VARIABLE +++++++: `, extra);
   }, [dispatch, postId]);
 
   let commentButtons;

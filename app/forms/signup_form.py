@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, Email, ValidationError, URL, Regexp
+from wtforms.validators import DataRequired, Email, ValidationError, Regexp
 from app.models import User
 
 
@@ -17,16 +17,16 @@ def username_exists(form, field):
     username = field.data
     user = User.query.filter(User.username == username).first()
     if user:
-        raise ValidationError('Username is already in use.')
+        raise ValidationError('User Name is already in use.')
 
 
 class SignUpForm(FlaskForm):
-    username = StringField('username', validators=[
+    username = StringField('User Name', validators=[
                            DataRequired(), username_exists])
-    first_name = StringField('first_name')
-    last_name = StringField('last_name')
-    email = StringField('email', validators=[DataRequired(), email_exists])
-    bio = StringField('bio')
-    profile_photo = StringField('profile_photo', validators=[Regexp(
+    first_name = StringField('First Name', validators=[DataRequired()])
+    last_name = StringField('Last Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), email_exists])
+    bio = StringField('Bio')
+    profile_photo = StringField('Profile Photo URL', validators=[Regexp(
         '^$|(?:http\:|https\:)?\/\/.*\.(?:png|jpg|jpeg)', message='Please use a valid image URL (https://ex.jpg/jpeg/png)')])
-    password = StringField('password')
+    password = StringField('Password')

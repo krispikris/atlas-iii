@@ -30,3 +30,9 @@ body {
     min-height: 100vh;
     font-family: Sailec-Light, "Helvetica Neue", Arial, sans-serif;
 }
+
+#required {
+    color: red;
+    margin-left: 5px;
+    font-weight: bold;
+}

@@ -157,7 +157,7 @@ const postReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case GET_POSTS:
-      console.log(`GET_POSTS REDUCER: ++++++++++++++++++++`, action);
+      // console.log(`GET_POSTS REDUCER: ++++++++++++++++++++`, action);
       action.payload.Posts.forEach((post) => {
         newState[post.id] = post;
       });

@@ -47,17 +47,17 @@ const SignUpForm = () => {
       );
     }
 
-    if (!bio || bio.length < 5 || bio.length > 255) {
-      errors.push(
-        "Please enter valid bio. Bio must be more than 5 and less than 255 characters."
-      );
-    }
+    // if (!bio || bio.length < 5 || bio.length > 255) {
+    //   errors.push(
+    //     "Please enter valid bio. Bio must be more than 5 and less than 255 characters."
+    //   );
+    // }
 
-    if (!profilePhoto || profilePhoto.length > 255) {
-      errors.push(
-        "Please enter valid photo. Photo URL must be more than 5 and less than 255 characters"
-      );
-    }
+    // if (!profilePhoto || profilePhoto.length > 255) {
+    //   errors.push(
+    //     "Please enter valid photo. Photo URL must be more than 5 and less than 255 characters"
+    //   );
+    // }
 
     if (!password || password.length < 3 || password.length > 30) {
       errors.push(
@@ -102,7 +102,10 @@ const SignUpForm = () => {
       );
       console.log(`SIGNUP FORM FRONT END DATA`, data);
       if (data && data.errors) {
+        // setValidationErrors(data);
         setErrors(data.errors);
+        console.log(`SETERRORS :`, errors);
+        return;
       }
     }
     return setErrors([
@@ -133,6 +136,12 @@ const SignUpForm = () => {
   return (
     <div class="signup-container">
       <form className="signup-form" onSubmit={handleSubmit}>
+        <ul className="signup-errors">
+          {errors.map((error, ind) => (
+            <li key={ind}>{error}</li>
+          ))}
+        </ul>
+
         <div className="errors-signup-form">
           {isSubmitted && (
             <ul className="signup-errors">
@@ -146,7 +155,9 @@ const SignUpForm = () => {
         <label id="welcome-to-atlas-signup">Welcome to atlas.</label>
         <div class="signup-form-input-container">
           <div>
-            <label id="signup-input-title">User Name</label>
+            <label id="signup-input-title">
+              User Name<p id="required"> *</p>
+            </label>
             <input
               id="signup-form-inputs"
               type="text"
@@ -157,7 +168,9 @@ const SignUpForm = () => {
           </div>
 
           <div>
-            <label id="signup-input-title">First Name</label>
+            <label id="signup-input-title">
+              First Name<p id="required"> *</p>
+            </label>
             <input
               id="signup-form-inputs"
               type="text"
@@ -168,7 +181,9 @@ const SignUpForm = () => {
           </div>
 
           <div>
-            <label id="signup-input-title">Last Name</label>
+            <label id="signup-input-title">
+              Last Name<p id="required"> *</p>
+            </label>
             <input
               id="signup-form-inputs"
               type="text"
@@ -179,7 +194,9 @@ const SignUpForm = () => {
           </div>
 
           <div>
-            <label id="signup-input-title">Email</label>
+            <label id="signup-input-title">
+              Email<p id="required"> *</p>
+            </label>
             <input
               id="signup-form-inputs"
               type="text"
@@ -212,7 +229,9 @@ const SignUpForm = () => {
           </div>
 
           <div>
-            <label id="signup-input-title">Password</label>
+            <label id="signup-input-title">
+              Password<p id="required"> *</p>
+            </label>
             <input
               id="signup-form-inputs"
               type="password"
@@ -223,7 +242,9 @@ const SignUpForm = () => {
           </div>
 
           <div>
-            <label id="signup-input-title">Repeat Password</label>
+            <label id="signup-input-title">
+              Repeat Password<p id="required"> *</p>
+            </label>
             <input
               id="signup-form-inputs"
               type="password"

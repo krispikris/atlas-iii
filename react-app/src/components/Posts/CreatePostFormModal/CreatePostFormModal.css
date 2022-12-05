@@ -59,11 +59,16 @@
     margin-bottom: 20px;
 }
 
-#pi-title {
+#post-input-title {
+    display: flex;
+}
+
+.pi-title {
     font-size: 17px;
     font-family: Sailec-Bold, "Helvetica Neue", Arial, sans-serif;
     color: #333333;
     margin-bottom: 4px;
+    display: flex;
 }
 
 #post-form-inputs {
