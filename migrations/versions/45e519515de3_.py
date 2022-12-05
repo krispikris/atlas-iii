@@ -78,6 +78,9 @@ def upgrade():
                     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
+
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
     # ### end Alembic commands ###
 
 
