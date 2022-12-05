@@ -45,6 +45,12 @@ const LoginForm = () => {
     } else {
       return history.push("/discover");
     }
+
+    // if (data.errors) {
+    //   setErrors(["Email or Password is incorrect."]);
+    // } else {
+    //   return history.push("/discover");
+    // }
   };
 
   return (

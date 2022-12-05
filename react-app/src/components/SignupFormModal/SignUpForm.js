@@ -53,11 +53,11 @@ const SignUpForm = () => {
     //   );
     // }
 
-    // if (!profilePhoto || profilePhoto.length > 255) {
-    //   errors.push(
-    //     "Please enter valid photo. Photo URL must be more than 5 and less than 255 characters"
-    //   );
-    // }
+    if (!profilePhoto || profilePhoto.length > 255) {
+      errors.push(
+        "Please enter valid photo. Photo URL must be more than 5 and less than 255 characters"
+      );
+    }
 
     if (!password || password.length < 3 || password.length > 30) {
       errors.push(
@@ -100,11 +100,12 @@ const SignUpForm = () => {
           password
         )
       );
-      console.log(`SIGNUP FORM FRONT END DATA`, data);
+
+      // console.log(`SIGNUP FORM FRONT END DATA`, data);
       if (data && data.errors) {
         // setValidationErrors(data);
         setErrors(data.errors);
-        console.log(`SETERRORS :`, errors);
+        // console.log(`SETERRORS :`, errors);
         return;
       }
     }
@@ -130,7 +131,7 @@ const SignUpForm = () => {
   // };
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/discover" />;
   }
 
   return (
@@ -218,7 +219,9 @@ const SignUpForm = () => {
           </div>
 
           <div>
-            <label id="signup-input-title">Profile Photo URL</label>
+            <label id="signup-input-title">
+              Profile Photo URL<p id="required"> *</p>
+            </label>
             <input
               id="signup-form-inputs"
               type="text"

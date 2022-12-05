@@ -91,26 +91,26 @@ const Navigation = ({ isLoaded, sessionUser }) => {
             </h3>
           </div>
 
-          <div className="footer-bar-wrap">
-            <div id="footer-left">About |</div>
+          <div className="footer-bar-wrap-nli">
+            <div id="footer-left-nli"></div>
 
-            <div className="footer-bar-middle">
-              <div id="created-by-name">
-                2022 Created and Styled by Kristopher Han |
+            <div className="footer-bar-middle-nli">
+              <div id="created-by-name-nli">
+                2022 Created and Styled by Kristopher Han ·
               </div>
             </div>
 
-            <div className="social-icons">
+            <div className="social-icons-nli">
               <a href="https://github.com/krispikris">
                 <img
-                  id="github-icon"
+                  id="github-icon-nli"
                   src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670217411/atlas/Icons/github-logo_nnsiqn.png"
                   alt="gh"
                 ></img>
               </a>
               <a href="https://www.linkedin.com/in/kristopherhan">
                 <img
-                  id="linkedin-icon"
+                  id="linkedin-icon-nli"
                   src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670217411/atlas/Icons/linkedin_dzqjrb.png"
                   alt="li"
                 ></img>
@@ -132,6 +132,33 @@ const Navigation = ({ isLoaded, sessionUser }) => {
           </div>
 
           <div id="a2-upload-and-profile">{isLoaded && sessionLinks}</div>
+
+          {/* <div className="footer-bar-wrap-li">
+            <div id="footer-left-li"></div>
+
+            <div className="footer-bar-middle-li">
+              <div id="created-by-name-li">
+                2022 Created and Styled by Kristopher Han ·
+              </div>
+            </div>
+
+            <div className="social-icon-li">
+              <a href="https://github.com/krispikris">
+                <img
+                  id="github-icon-li"
+                  src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670217411/atlas/Icons/github-logo_nnsiqn.png"
+                  alt="gh"
+                ></img>
+              </a>
+              <a href="https://www.linkedin.com/in/kristopherhan">
+                <img
+                  id="linkedin-icon-li"
+                  src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670217411/atlas/Icons/linkedin_dzqjrb.png"
+                  alt="li"
+                ></img>
+              </a>
+            </div>
+          </div> */}
         </div>
       )}
     </>

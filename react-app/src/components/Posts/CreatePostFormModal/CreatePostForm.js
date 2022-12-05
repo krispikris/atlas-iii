@@ -14,18 +14,20 @@ const CreatePostForm = ({ setShowModal }) => {
   const [description, setDescription] = useState("");
   const [tips, setTips] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState([]);
   const [validationErrors, setValidationErrors] = useState([]);
 
   useEffect(() => {
     const errors = [];
-    //   if (!imageURL || !imageURL.match(/\/{2}.+?\.(jpg|png|gif|jpeg)/gm)) {
-    //     errors.push("Please enter valid image url.");
-    //   }
 
     if (!photo || photo.length < 5 || photo.length > 255) {
       errors.push(
         "Please enter valid photo. Photo URL must be more than 5 and less than 255 characters."
       );
+    }
+
+    if (!photo.match(/\/{2}.+?\.(jpg|png|gif|jpeg)/gm)) {
+      errors.push("Please use a valid Photo URL (https://ex.jpg/jpeg/png)");
     }
 
     if (!title || title.length < 2 || title.length > 50) {
@@ -60,6 +62,7 @@ const CreatePostForm = ({ setShowModal }) => {
     setIsSubmitted(true);
 
     if (validationErrors.length > 0) return;
+
     const postFormInputs = {
       photo,
       title,
@@ -80,6 +83,12 @@ const CreatePostForm = ({ setShowModal }) => {
   return (
     <div class="create-post-form-modal-container">
       <form className="create-new-post-form" onSubmit={handleSubmit}>
+        <ul className="signup-errors">
+          {errors.map((error, ind) => (
+            <li key={ind}>{error}</li>
+          ))}
+        </ul>
+
         <div className="errors-create-post-form">
           {isSubmitted && (
             <ul className="create-post-errors">
