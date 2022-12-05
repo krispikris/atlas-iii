@@ -8,7 +8,7 @@ class Post(db.Model):
     __tablename__ = 'posts'
 
     if environment == "production":
-        __table_args__ = {'atlas_schema': SCHEMA}
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(
