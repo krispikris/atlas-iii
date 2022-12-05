@@ -35,6 +35,7 @@ const CreateCommentForm = ({ setShowModal }) => {
     if (validationErrors.length > 0) return;
 
     let commentInput = { comment };
+
     // console.log("THIS CREATED REVIEW : ", reviewInput);
 
     await dispatch(createCommentThunk(commentInput, postId, currentUser))
