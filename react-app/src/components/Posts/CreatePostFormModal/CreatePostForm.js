@@ -42,17 +42,17 @@ const CreatePostForm = ({ setShowModal }) => {
       );
     }
 
-    if (!description || description.length < 5 || description.length > 255) {
-      errors.push(
-        "Please enter valid description. Description must be more than 5 and less than 255 characters."
-      );
-    }
+    // if (!description || description.length < 5 || description.length > 255) {
+    //   errors.push(
+    //     "Please enter valid description. Description must be more than 5 and less than 255 characters."
+    //   );
+    // }
 
-    if (!tips || tips.length < 5 || tips.length > 255) {
-      errors.push(
-        "Please enter valid tips. Tips must be more than 5 and less than 255 characters."
-      );
-    }
+    // if (!tips || tips.length < 5 || tips.length > 255) {
+    //   errors.push(
+    //     "Please enter valid tips. Tips must be more than 5 and less than 255 characters."
+    //   );
+    // }
 
     setValidationErrors(errors);
   }, [photo, title, location, description, tips]);
@@ -152,7 +152,7 @@ const CreatePostForm = ({ setShowModal }) => {
           detailed as possible.
         </label>
         <input
-          id="post-form-inputs"
+          id="post-form-inputs-2x"
           type="text"
           name="description"
           value={description}
@@ -166,7 +166,7 @@ const CreatePostForm = ({ setShowModal }) => {
         </label>
 
         <input
-          id="post-form-inputs"
+          id="post-form-inputs-2x"
           type="text"
           name="tips"
           value={tips}

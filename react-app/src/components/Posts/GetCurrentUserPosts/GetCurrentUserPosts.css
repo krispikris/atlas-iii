@@ -13,10 +13,11 @@
     font-family: Sailec-Medium, "Helvetica Neue", Arial, sans-serif;
     color: #333333cb;
     font-size: 36px;
-    margin-left: 125px;
+    /* margin-left: 125px; */
+    padding-left: 5%;
     width: 30%;
     margin-top: 25px;
-    border: black solid 2px;
+    /* border: black solid 2px; */
 }
 
 .all-current-posts-container {
