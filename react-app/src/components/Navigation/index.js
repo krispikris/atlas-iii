@@ -82,13 +82,13 @@ const Navigation = ({ isLoaded, sessionUser }) => {
           </div>
 
           <div class="b-splash-photo-text">
-            <h1 id="b1-a-splah-nli-title-1">
-              Explore, plan, and visualize your next photography adventure.
-            </h1>
             <h3 id="b1-a-splah-nli-title-2">
               Discover a world of individual photography travel experiences
-              curated by photograhers like you.
+              curated by photographers like you.
             </h3>
+            <h1 id="b1-a-splah-nli-title-1">
+              Explore, plan, and visualize your next photography Adventure.
+            </h1>
           </div>
 
           <div className="footer-bar-wrap-nli">
