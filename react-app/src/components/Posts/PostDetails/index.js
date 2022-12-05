@@ -118,19 +118,20 @@ const PostDetails = () => {
   return (
     isLoaded && (
       <>
-        <div class="a-full-post-page-wrap">
-          <div class="a1-left-container">
-            <div class="a1-left-post-photo">
-              <img
-                id="post-img"
-                src={currentPostObj?.photo}
-                alt="post-left"
-                onError={(e) =>
-                  (e.target.src =
-                    "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
-                }
-              ></img>
-            </div>
+        <div className="a-full-post-page-wrap">
+          <div className="a1-left-container">
+            {/* <div className="a1-left-post-photo"> */}
+            <img
+              className="post-detail-image"
+              id="post-img"
+              src={currentPostObj?.photo}
+              alt="post-left"
+              onError={(e) =>
+                (e.target.src =
+                  "https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png")
+              }
+            ></img>
+            {/* </div> */}
           </div>
 
           <div class="a2-right-details">
@@ -139,11 +140,13 @@ const PostDetails = () => {
                 id="username-image"
                 src={currentPostObj?.User?.profile_photo}
               ></img>
-              <div id="a2a-us-lo">
-                <p id="a2a-1">{currentPostObj?.User.username}</p>
-                <p id="a2a-2">{currentPostObj?.location}</p>
+              <div>
+                <div id="a2a-us-lo">
+                  <p id="a2a-1">{currentPostObj?.User.username}</p>
+                  <p id="a2a-2">{currentPostObj?.location}</p>
+                </div>
+                <div id="edit-post-buttons">{postButtons}</div>
               </div>
-              <div id="edit-post-buttons">{postButtons}</div>
             </div>
 
             <div class="a2b">

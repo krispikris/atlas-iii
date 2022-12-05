@@ -8,13 +8,15 @@
 }
 
 #all-posts-title-community {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     font-family: Sailec-Medium, "Helvetica Neue", Arial, sans-serif;
-    color: #333333;
+    color: #333333cb;
     font-size: 36px;
-    margin-left: 5%;
-    margin-top: 35px;
+    margin-left: 125px;
+    width: 30%;
+    margin-top: 25px;
+    border: black solid 2px;
 }
 
 .all-posts-homepage-container {
@@ -23,7 +25,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    max-width: 93%;
+    max-width: 91%;
     /* max-width: 1020px; */
     /*SAVE FOR THE BODY*/
     height: 100%;
