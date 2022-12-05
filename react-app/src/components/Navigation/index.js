@@ -92,25 +92,29 @@ const Navigation = ({ isLoaded, sessionUser }) => {
           </div>
 
           <div className="footer-bar-wrap">
-            <div id="footer-left">
-              <div id="created-by-name">
-                2022 Created and Styled by Kristopher Han
-              </div>
-              <div id="social-icons">
-                <a href="https://github.com/krispikris" target="_blank">
-                  <i id="github-icon" className="fa-brands fa-github"></i>
-                </a>
+            <div id="footer-left">About |</div>
 
-                <a
-                  href="https://www.linkedin.com/in/kristopherhan"
-                  target="_blank"
-                >
-                  <i
-                    id="linkedin-icon"
-                    className="fa-brands fa-linkedin-in"
-                  ></i>
-                </a>
+            <div className="footer-bar-middle">
+              <div id="created-by-name">
+                2022 Created and Styled by Kristopher Han |
               </div>
+            </div>
+
+            <div className="social-icons">
+              <a href="https://github.com/krispikris">
+                <img
+                  id="github-icon"
+                  src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670217411/atlas/Icons/github-logo_nnsiqn.png"
+                  alt="gh"
+                ></img>
+              </a>
+              <a href="https://www.linkedin.com/in/kristopherhan">
+                <img
+                  id="linkedin-icon"
+                  src="https://res.cloudinary.com/duvgdb8rd/image/upload/v1670217411/atlas/Icons/linkedin_dzqjrb.png"
+                  alt="li"
+                ></img>
+              </a>
             </div>
           </div>
         </div>

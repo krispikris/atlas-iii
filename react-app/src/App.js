@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import GetPosts from "./components/Posts/GetPosts";
 import PostDetails from "./components/Posts/PostDetails";
 import UsersList from "./components/Users/UsersList";
+import GetCurrentUserPosts from "./components/Posts/GetCurrentUserPosts";
 // import LoginForm from "./components/Auth/LoginForm";
 // import SignUpForm from "./components/Auth/SignupForm";
 
@@ -55,7 +56,8 @@ const App = () => {
             <GetPosts />
           </Route>
           <Route path="/posts/current" exact={true}>
-            <h1>Current User's Posts</h1>
+            {/* <h1>Current User's Posts</h1> */}
+            <GetCurrentUserPosts />
           </Route>
           <Route path="/posts/:postId" exact={true}>
             <PostDetails />

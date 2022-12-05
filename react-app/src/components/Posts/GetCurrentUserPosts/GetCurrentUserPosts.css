@@ -1,0 +1,61 @@
+.all-current-posts-wrap {
+    /* display: flex; */
+    /* justify-content: center; */
+    width: 100%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#all-current-posts-title {
+    /* display: flex; */
+    flex-direction: column;
+    font-family: Sailec-Medium, "Helvetica Neue", Arial, sans-serif;
+    color: #333333cb;
+    font-size: 36px;
+    margin-left: 125px;
+    width: 30%;
+    margin-top: 25px;
+    border: black solid 2px;
+}
+
+.all-current-posts-container {
+    display: flex;
+    /* grid-template-columns: repeat(5, 1fr); */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 91%;
+    /* max-width: 1020px; */
+    /*SAVE FOR THE BODY*/
+    height: 100%;
+    margin: auto;
+    row-gap: 25px;
+    column-gap: 25px;
+    margin-top: 25px;
+    margin-bottom: 70px;
+    /* box-sizing: border-box; */
+}
+
+.current-post-card {
+    border-radius: 2%;
+    width: 373px;
+    height: 223.797px;
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+    /* width: max-content; */
+    /* max-width: 200px; */
+    /* height: max-content; */
+    /* max-height: 200px; */
+    box-sizing: border-box;
+    object-fit: cover;
+}
+
+.current-post-card:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+#current-post-description-left {
+    width: 50%;
+}

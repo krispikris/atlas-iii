@@ -164,7 +164,8 @@ const postReducer = (state = initialState, action) => {
       return newState;
 
     case GET_USER_POSTS:
-      action.payload.Post.forEach((post) => {
+      // newState = { ...state };
+      action.payload.Posts.forEach((post) => {
         newState[post.id] = post;
       });
       return newState;
