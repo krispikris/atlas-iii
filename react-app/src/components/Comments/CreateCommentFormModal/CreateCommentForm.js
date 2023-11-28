@@ -1,18 +1,18 @@
 // frontend/src/components/CreateReviewModal/CreateReviewForm.js
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { createCommentThunk } from "../../../store/comment";
-import "./CreateCommentFormModal.css";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { createCommentThunk } from '../../../store/comment';
+import './CreateCommentFormModal.css';
 
 const CreateCommentForm = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const { postId } = useParams();
 
   const currentUser = useSelector((state) => state.session.user);
-  console.log("This is the current user as an OBJECT: ", currentUser);
+  console.log('This is the current user as an OBJECT: ', currentUser);
 
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState([]);
   const [validationErrors, setValidationErrors] = useState([]);
@@ -22,7 +22,7 @@ const CreateCommentForm = ({ setShowModal }) => {
 
     if (!comment || comment.length < 1 || comment.length > 255) {
       errors.push(
-        "Please leave a comment more than 1 and less than 255 characters."
+        'Please leave a comment more than 1 and less than 255 characters.',
       );
     }
 
